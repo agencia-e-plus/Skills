@@ -347,3 +347,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for a complete guide on adding skills, tr
 ## License
 
 See [LICENSE](LICENSE) for details.
+
+---
+
+## Agência e-plus
+
+Repositório da [Agência e-plus](https://github.com/agencia-e-plus) com skills para desenvolvimento assistido por IA na VTEX. Se notar erro ou lacuna no fluxo de uma skill, peça ao agente para aprimorar a skill em uso.
