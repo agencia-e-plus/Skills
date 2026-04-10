@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 (2026-04-10)
+
+
+### Features
+
+* add eplus-cli, tarefy, custom app scss, globalize, and styling skills ([3c6e370](https://github.com/agencia-e-plus/Skills/commit/3c6e370a93bcd0e75ecf49a7e6b9201449a38b56))
+
 ## [1.4.3](https://github.com/vtex/skills/compare/v1.4.2...v1.4.3) (2026-04-06)
 
 
