@@ -1,0 +1,38 @@
+{
+  "name": "vtex-skills",
+  "version": "1.4.3",
+  "type": "module",
+  "description": "VTEX External Developer Skills - AI agent skills for VTEX platform development",
+  "scripts": {
+    "export": "bun run scripts/export.ts",
+    "validate": "bun run scripts/validate.ts",
+    "export:cursor": "bun run scripts/export.ts --platform cursor",
+    "export:copilot": "bun run scripts/export.ts --platform copilot",
+    "export:claude": "bun run scripts/export.ts --platform claude",
+    "export:agents-md": "bun run scripts/export.ts --platform agents-md",
+    "export:opencode": "bun run scripts/export.ts --platform opencode",
+    "export:kiro": "bun run scripts/export.ts --platform kiro",
+    "banner": "python3 scripts/generate_banner.py",
+    "banner:compare": "python3 scripts/generate_banner.py --compare"
+  },
+  "keywords": [
+    "vtex",
+    "skills",
+    "ai-agents",
+    "cursor",
+    "copilot",
+    "claude",
+    "opencode",
+    "kiro"
+  ],
+  "author": "VTEX",
+  "license": "MIT",
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "fast-check": "^4.6.0",
+    "glob": "^13.0.6"
+  }
+}

@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Sisyphus (local orchestration state)
+.sisyphus/
+
+# OpenCode (local config)
+opencode.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Banner generator (downloaded at runtime, not committed)
+assets/fonts/
+assets/icons/
+assets/banner_reference.png
+assets/banner_comparison.png
