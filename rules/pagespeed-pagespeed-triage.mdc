@@ -1,0 +1,21 @@
+---
+description: Gatilho e regras para triagem de performance, PageSpeed Insights e Core Web Vitals no Compass/Atendimento
+globs: *
+alwaysApply: false
+---
+
+# Regra: Triagem de Performance e Core Web Vitals
+
+Esta regra é acionada sempre que o chamado envolver links do Google PageSpeed Insights, relatórios de velocidade, Core Web Vitals (LCP, CLS, INP, FCP, TTFB) ou solicitações de auditoria de performance em lojas virtuais.
+
+## Diretrizes de Ativação
+
+1. **Carregamento Mandatório da Skill:**
+   - Leia e execute estritamente o procedimento definido em `skills/pagespeed-triage/skill.md`.
+   - Identifique a plataforma da loja e consulte **exclusivamente** a referência técnica correspondente em `skills/pagespeed-triage/references/` (vtex-io.md, faststore.md, deco.md, shopify.md ou nuvemshop.md).
+
+2. **Premissas Operacionais:**
+   - **Sem Redesign:** Ajustes estritamente funcionais e de código no tema aprovado.
+   - **Isolamento de Escopo:** Terceiros/pixels, acessibilidade (a11y) e SEO técnico ficam fora do escopo do chamado de performance.
+   - **Scores 90+:** Aplicar cotação zero (0h) se o dispositivo analisado já estiver na faixa verde em Laboratório e Campo (CrUX).
+   - **Saída Padronizada:** Entregar a Triagem Interna, o Parecer Formal ao Cliente e o Handoff Estruturado para o Daytona/Compass.
