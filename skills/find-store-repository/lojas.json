@@ -1,0 +1,211 @@
+{
+  "miess": {
+    "nome": "Miess",
+    "url": "https://www.miess.com.br/",
+    "repositorios": [
+      "https://github.com/deco-sites/miess-01",
+      "https://github.com/agencia-e-plus/miess"
+    ],
+    "vendor": "miess"
+  },
+  "banana brasil b2c": {
+    "nome": "Banana Brasil B2C",
+    "url": "https://www.bananabrasil.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/bananabrasilb2c",
+      "https://github.com/agencia-e-plus/bananabrasilb2c-checkout"
+    ],
+    "vendor": "bananabrasilb2c"
+  },
+  "banana brasil b2b": {
+    "nome": "Banana Brasil B2B",
+    "url": "https://b2b.bananabrasil.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/bananabrasil-b2b"
+    ],
+    "vendor": "bananabrasil"
+  },
+  "degusta casa": {
+    "nome": "Degusta Casa",
+    "url": "https://www.degusta.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/degusta"
+    ]
+  },
+  "kolplast": {
+    "nome": "Kolplast",
+    "url": "https://loja.kolplast.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/kolplast-io"
+    ],
+    "vendor": "kolplast"
+  },
+  "agência e-plus": {
+    "nome": "Agência e-Plus",
+    "vendor": "agenciaeplus",
+    "semRepositorio": true
+  },
+  "ofner": {
+    "nome": "Ofner",
+    "url": "https://www.ofner.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/ofnerio"
+    ],
+    "vendor": "ofnerio"
+  },
+  "ultrafeu": {
+    "nome": "Ultrafeu",
+    "url": "https://www.ultrafeu.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/ultrafeu-master",
+      "https://github.com/deco-sites/siteultrafeu"
+    ],
+    "vendor": "ultrafeu"
+  },
+  "phytoterápica": {
+    "nome": "Phytoterápica",
+    "url": "https://loja.phytoterapica.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/phytoterapica",
+      "https://github.com/deco-sites/phytoterapica"
+    ],
+    "vendor": "phytoterapica"
+  },
+  "torra": {
+    "nome": "Torra",
+    "url": "https://www.lojastorra.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/torra-io",
+      "https://github.com/agencia-e-plus/faststoretorra"
+    ],
+    "vendor": "torratorra"
+  },
+  "hector albertazzi": {
+    "nome": "Hector Albertazzi",
+    "url": "https://www.hectoralbertazzi.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/hectoralbertazzishowroom"
+    ],
+    "vendor": "hectoralbertazzi"
+  },
+  "caju brasil": {
+    "nome": "Caju Brasil",
+    "url": "https://www.cajubrasil.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/cajubrasil"
+    ],
+    "vendor": "cajubrasil"
+  },
+  "vila romana": {
+    "nome": "Vila Romana",
+    "url": "https://www.shopvilaromana.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/vilaromana"
+    ],
+    "vendor": "vilaromana"
+  },
+  "ravin": {
+    "nome": "Ravin",
+    "url": "https://www.ravin.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/ravin"
+    ],
+    "vendor": "ravin"
+  },
+  "todomoda": {
+    "nome": "Todomoda",
+    "url": "https://br.todomoda.com/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/todomoda"
+    ],
+    "vendor": "todomoda"
+  },
+  "loja sansuy": {
+    "nome": "Loja Sansuy",
+    "url": "https://www.lojasansuy.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/lojasansuy"
+    ],
+    "vendor": "lojasansuy"
+  },
+  "medicalshop": {
+    "nome": "MedicalShop",
+    "url": "https://www.medicalshop.pt/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/medicalshop"
+    ],
+    "vendor": "medicalshop"
+  },
+  "central cabos": {
+    "nome": "Central Cabos",
+    "url": "https://www.centralcabos.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/central-cabos-io"
+    ],
+    "vendor": "centralcabos"
+  },
+  "soares atacado": {
+    "nome": "Soares Atacado",
+    "url": "https://www.soaresatacado.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/b2bgruposoares"
+    ],
+    "vendor": "b2bgruposoares"
+  },
+  "super saudável shopping": {
+    "nome": "Super Saudável Shopping",
+    "url": "https://www.supersaudavelshopping.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/lojasupersaudavel"
+    ],
+    "vendor": "lojasupersaudavel"
+  },
+  "thamara capelão": {
+    "nome": "Thamara Capelão",
+    "url": "https://www.thamaracapelao.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/faststore-b2cthamaracapelao"
+    ],
+    "vendor": "b2cthamaracapelao"
+  },
+  "mundo do enxoval": {
+    "nome": "Mundo do Enxoval",
+    "url": "https://www.mundodoenxoval.com.br/",
+    "repositorios": [
+      "https://github.com/deco-sites/mundodoenxoval"
+    ],
+    "vendor": "mundodoenxoval"
+  },
+  "sex shop atacadão": {
+    "nome": "Sex Shop Atacadão",
+    "url": "https://www.sexshopatacadao.com.br/",
+    "repositorios": [
+      "https://github.com/deco-sites/sexshopatacadao"
+    ],
+    "vendor": "atacadaosexyshop"
+  },
+  "todimo": {
+    "nome": "Todimo",
+    "url": "https://www.todimo.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/todimo"
+    ],
+    "vendor": "todimo"
+  },
+  "bupbaby": {
+    "nome": "BupBaby",
+    "url": "https://www.loja.bupbaby.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/bupbaby-io"
+    ]
+  },
+  "casa santa luzia": {
+    "nome": "Casa Santa Luzia",
+    "url": "https://www.santaluzia.com.br/",
+    "repositorios": [
+      "https://github.com/agencia-e-plus/santaluzia",
+      "https://github.com/agencia-e-plus/santaluzia-apps"
+    ],
+    "vendor": "santaluzia"
+  }
+}

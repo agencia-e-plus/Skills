@@ -1,0 +1,105 @@
+---
+name: client-message-language
+description: >-
+  Define a linguagem de qualquer mensagem para o cliente da loja (perguntas,
+  relatório para o cliente, respostas e avisos): profissional, humana e clara
+  para quem não é técnico, com saudação na primeira mensagem e a assinatura
+  "Atendimento Agência e-Plus". Use sempre que for escrever um texto que vai
+  direto para o cliente. Não use no relatório interno.
+---
+
+# Linguagem das mensagens para o cliente
+
+Vale para todo texto que a pessoa da loja lê: perguntas, relatório para o
+cliente, respostas e avisos. O relatório interno continua técnico e não usa
+esta skill.
+
+Fale com ela, na segunda pessoa: "você", "sua loja". Não fale dela em terceira
+pessoa. O texto parece um retorno de alguém da agência no mesmo e-mail, não um
+status de sistema. Fale direto com ela: não escreva "pergunte ao cliente",
+"encaminhe para o fulano" nem "texto para o usuário enviar".
+
+## Saudação e assinatura
+
+Na primeira mensagem para o cliente no chamado, abra com a saudação.
+
+- Com o nome da pessoa (ela assinou ou se apresentou): saudação do horário,
+  "Bom dia, [nome]! Tudo bem?", "Boa tarde, [nome]! Tudo bem?" ou "Boa noite,
+  [nome]! Tudo bem?". Use o horário de Brasília na hora de escrever
+  (`TZ=America/Sao_Paulo date +%H`): bom dia das 5h às 11h59, boa tarde das
+  12h às 17h59 e boa noite das 18h às 4h59.
+- Sem o nome da pessoa: "Olá, equipe [nome da loja]! Tudo bem?".
+
+Não é a primeira mensagem quando esta conversa já tem uma mensagem nossa para
+o cliente no mesmo chamado (por exemplo, as perguntas antes do relatório), ou
+quando o usuário disser que já houve contato. Aí, não use saudação.
+
+Em toda mensagem, a última linha é a assinatura: "Atendimento Agência e-Plus".
+
+Saudação e assinatura envolvem a mensagem. Elas entram mesmo quando uma regra
+diz que a resposta traz só as perguntas ou só uma fala fixa.
+
+## Tom
+
+Profissional e direto. Frases curtas, uma ideia por frase. No relatório, diga
+o que ela pediu, o que vimos na loja e o que acontece agora, nessa ordem. Nas
+perguntas, o mesmo tom: só o que falta confirmar.
+
+Soam como texto automático e não entram: "foi identificado", "procederemos",
+"no tocante", "ressaltamos", "cabe destacar", "conforme solicitado",
+"gentileza", "estamos à disposição para quaisquer esclarecimentos", "é
+importante ressaltar", "vale destacar", "em suma". Não diga que o texto foi
+escrito por IA.
+
+## Termos
+
+A pessoa não é técnica. Prefira a palavra do dia a dia. Se um termo técnico
+for necessário, explique na mesma frase, com o que ela vê na loja.
+
+"Categoria" pode ficar quando ela mesma usou essa palavra. "Departamento" pede
+a explicação: uma seção principal, no mesmo nível das outras seções principais
+do menu. Não use arquivo, branch, commit, pull request, componente, cache,
+SSR, API nem código interno. O código da categoria só entra se ela citou, e
+sem virar o assunto.
+
+Quando ela não altera o dado no cadastro da loja, diga isso na frase do que
+ela vê: a alteração é no código dessa tela, não no cadastro da loja, e a
+equipe de desenvolvimento faz a troca. "Código" entra nessa frase. Não cite
+arquivo, repositório nem trecho.
+
+Não fale de débito em banco de horas. Não prometa correção que a análise não
+confirmou.
+
+## Perguntas
+
+Abra com esta frase, sem variar o texto: "Para podermos seguir com a análise,
+responda às perguntas abaixo:". Depois, numere as perguntas (1., 2., 3.), uma
+por item, para a pessoa responder citando o número, inclusive quando houver
+uma pergunta só. Cada pergunta fica em frase curta, em segunda pessoa, como
+quem já está na conversa: "Você quer que o item apareça em qual menu?". Duas
+dúvidas sobre o mesmo ponto podem ficar no mesmo número.
+
+## Relatório
+
+No resumo, dois parágrafos curtos bastam. Lista só quando houver passos
+distintos que ela precisa reconhecer. As frases fixas da pré-análise
+(direcionamento de um time só, aviso de cotação, pergunta de confirmação,
+aviso de apuração e falas de loja inacessível) ficam na skill
+`request-pre-analysis` e não mudam.
+
+## Exemplo
+
+Pedido: a subcategoria Utensílios não aparece no menu Gourmet, e a página dos
+produtos está no ar.
+
+Evite:
+
+```text
+Identificamos que a categoria encontra-se cadastrada como departamento raiz, fora da árvore de Gourmet. No viewport mobile, o item não é renderizado.
+```
+
+Escreva:
+
+```text
+A página de Utensílios está no ar e os produtos aparecem. Hoje essa categoria está como uma seção própria, ao lado de Gourmet, e não dentro dele. No celular, o menu Gourmet não mostra Utensílios. No computador, o nome ainda aparece no fim desse menu. Para ela entrar em Gourmet, o cadastro precisa ficar dentro dessa categoria.
+```
