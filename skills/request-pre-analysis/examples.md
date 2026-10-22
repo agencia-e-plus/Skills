@@ -120,3 +120,29 @@ Sua solicitação foi encaminhada para cotação. Em breve você receberá o val
 
 Atendimento Agência e-Plus
 ```
+
+# Correção que depende de uma escolha da pessoa
+
+Entrada: a Ofner relata que, no celular, o "Regulamento" do rodapé não abre e
+que a vitrine "Encontre o presente ideal" não carrega. No Site Editor, versão
+celular, os itens do rodapé estão sem link; no computador, com link. A
+vitrine usa a coleção "Recomendação de presentes", e os 12 produtos dela
+estão com estoque zero. Corrigir a vitrine depende do que a Ofner escolher.
+
+Saída, na primeira mensagem para o cliente:
+
+```markdown
+Olá, equipe Ofner! Tudo bem?
+
+Conferimos os dois pontos na loja.
+
+No celular, o "Regulamento" do rodapé está sem link, por isso o toque não abre nada. O mesmo acontece com "Quem somos", "Política e Segurança", "Política de Cookies" e "Trabalhe Conosco". No computador, esses links funcionam.
+
+A vitrine "Encontre o presente ideal" mostra os produtos da lista "Recomendação de presentes". Os 12 produtos dessa lista estão sem estoque no site, como o Tablete Biscofner, o Tablete Dubai e o Bombom Art de L'Ocean. Como a vitrine mostra só produtos disponíveis para compra, ela fica vazia, no celular e no computador.
+
+Para podermos seguir com a análise, responda às perguntas abaixo:
+
+1. Como você quer seguir com a vitrine "Encontre o presente ideal"? Você pode repor o estoque desses 12 produtos, trocar os produtos dessa lista por outros com estoque ou usar outra lista de produtos na vitrine. Se for trocar, diga quais produtos ou qual lista entram.
+
+Atendimento Agência e-Plus
+```

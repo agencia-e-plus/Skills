@@ -24,7 +24,7 @@ Reescreve esse texto para mandar ao cliente
 
 **Saudação** (só na primeira mensagem do chamado):
 
-- Com o nome da pessoa: "Bom dia/Boa tarde/Boa noite, [nome]! Tudo bem?",
+- Com o nome da pessoa: "Bom dia/Boa tarde/Boa noite, [nome]! Tudo bem?" (em todos os tons),
   pelo horário de Brasília (5h–11h59, 12h–17h59, 18h–4h59).
 - Sem o nome: "Olá, equipe [nome da loja]! Tudo bem?".
 
@@ -38,6 +38,19 @@ e-Plus`.
 - Fora: "foi identificado", "procederemos", "ressaltamos", "conforme
   solicitado", "gentileza", "estamos à disposição para quaisquer
   esclarecimentos" e outras expressões de texto automático.
+
+**Humor do cliente**
+
+Antes de escrever, ler o humor da pessoa e ajustar a mensagem:
+
+| Nível | Como responder |
+|---|---|
+| Bom humor | Tom padrão, um pouco mais leve, sem piada nem emoji. |
+| Neutro | Tom padrão. |
+| Irritado | Reconhecer o incômodo em uma frase e ir direto ao ponto. |
+| Muito irritado (xinga, ameaça cancelar, processar, Procon/Reclame Aqui, tudo em maiúsculas, várias cobranças sem resposta) | Só uma das três falas de encaminhamento ao time de atendimento e suporte, sem resumo nem perguntas. |
+
+Na fala de encaminhamento, escolher a variação pelo que a pessoa disse: geral (1), impacto na venda ou operação (2) ou cobrança sem resposta (3). Na dúvida, tratar como irritado. Nunca comentar o humor da pessoa.
 
 **Termos**
 
@@ -71,4 +84,4 @@ Hoje essa categoria está como uma seção própria, ao lado de Gourmet, e não 
 
 | Arquivo | Conteúdo |
 |---|---|
-| `SKILL.md` | Saudação, assinatura, tom, termos, perguntas e exemplo |
+| `SKILL.md` | Saudação, assinatura, humor do cliente, tom, termos, perguntas e exemplo |

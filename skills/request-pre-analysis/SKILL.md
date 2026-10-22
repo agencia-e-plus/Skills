@@ -206,6 +206,21 @@ diz ter alterado, e um bloco que pode ter valor diferente por dispositivo,
 binding ou página. Uma prop que o admin sobrescreve, como visibilidade, texto
 ou imagem, pede o registro mesmo quando o arquivo tem um padrão.
 
+Site Editor por dispositivo. O Site Editor guarda o conteúdo de cada versão
+(computador, tablet e celular) separado, e blocos como `footer-layout.mobile`,
+`header-layout.mobile` e `responsive-layout.mobile` só aparecem na versão do
+dispositivo deles. Quando o chamado cita um dispositivo, ou o comportamento
+muda de um dispositivo para outro, leia o bloco em cada versão que o chamado
+envolve, trocando o dispositivo na barra do Site Editor. Registre o valor de
+cada versão (link, texto, imagem, coleção, visibilidade). Não conclua o valor
+de uma versão pelo site no ar nem pelo valor de outra versão. Abra o bloco só
+para ler: não altere campo, não salve e não publique; saia sem salvar.
+
+O que o admin mostra em leitura não vira próximo passo. Não deixe "conferir no
+Site Editor" ou "ver no admin" para quem segue o chamado quando você mesmo
+podia ler. Se a tela não abriu ou não mostrou o valor, diga isso no relatório
+interno.
+
 Antes de abrir, rode a `identify-store-vendor`, se ela ainda não rodou nesta
 conversa para a mesma loja. Se o vendor identificado divergir do cadastro,
 registre os dois no relatório interno. O admin usa o do cadastro; se a conta
@@ -220,6 +235,29 @@ código".
 
 ### 8. Resposta
 
+Antes de responder, confira a base da causa e da classificação. Liste cada
+fato em que elas se apoiam e marque se você viu (na loja no ar, no código ou
+no admin) ou se deduziu. Fato deduzido que a loja, o código ou o admin podem
+mostrar precisa ser lido agora, antes da resposta, e não vai para os próximos
+passos. Exemplos: o valor de um link no Site Editor do celular, deduzido pelo
+site no ar ou pela versão do computador; o estoque de um produto, deduzido
+pela vitrine vazia. Se o admin for necessário e ainda não estiver aberto,
+volte ao passo 7. Quando a leitura não for possível (tela que não abre,
+permissão), diga isso no relatório interno e trate o ponto como não
+confirmado: a causa que depende dele fica inconclusiva, e a correção não é
+prometida.
+
+Comparação com um bloco que funciona. Quando a loja tem um bloco parecido
+funcionando (outra vitrine, outro menu, o mesmo bloco em outro dispositivo ou
+em outra página), compare os dois antes de fechar a causa: as props no código,
+a configuração no Site Editor e a consulta que cada um faz na loja no ar (por
+exemplo, as variáveis da query `Products` de cada vitrine). A diferença entre
+eles costuma ser a causa, ou mostra que a causa é outra. Não use o bloco que
+funciona como prova de que um dado está certo (estoque, link, coleção) sem ver
+por que ele funciona: uma vitrine que mostra produtos pode estar só sem o
+filtro de indisponíveis. Registre a comparação em "O que está no ar e no
+código".
+
 Se faltar algo, siga Perguntas. Se não, entregue os relatórios (Retorno).
 
 ## Perguntas
@@ -228,8 +266,10 @@ Antes de entregar a pré-análise, tire toda dúvida sobre o que a pessoa espera
 ou quer. Se a solicitação não ficou clara, se você não entendeu ou se falta
 informação, pergunte direto a ela: quantas perguntas forem necessárias, mas só
 sobre o que a mensagem, os anexos, a loja e o código não respondem. A resposta
-traz só as perguntas, no formato da `client-message-language`. A
-pré-análise sai depois das respostas, já alinhada ao que foi confirmado.
+traz só as perguntas, no formato da `client-message-language`, com o contexto
+antes delas quando a pergunta é uma escolha sobre o que a análise encontrou. A
+pré-análise sai depois das respostas, já alinhada ao que foi confirmado. Com
+cliente muito irritado, não pergunte: siga o Retorno.
 
 Também vão para Perguntas:
 
@@ -248,6 +288,14 @@ Também vão para Perguntas:
   não recolhe esse valor.
 - Evolução com layout sem referência visual, ou com item indefinido que muda o
   resultado (veja o [layout.md](layout.md)).
+- Correção que depende de uma escolha da pessoa: a causa já está confirmada e
+  há mais de um caminho, e quem escolhe é ela. Exemplo: a vitrine não mostra
+  produtos porque todos os itens da coleção estão sem estoque, e ela pode
+  repor o estoque, trocar os produtos da coleção ou usar outra coleção na
+  vitrine. Explique o que encontrou e pergunte como ela quer seguir, citando
+  os caminhos. A escolha não fica nos próximos passos para o atendimento
+  perguntar depois. Num chamado com mais de um ponto, a mensagem já diz o que
+  foi encontrado em cada ponto, e só pergunta o que depende da escolha.
 
 ## Retorno
 
@@ -261,6 +309,13 @@ cliente, exceto:
   e sem pergunta de confirmação. O relatório para o cliente só entra quando a
   causa já pode ser dita sem prometer correção errada.
 - Mensagem com vídeo sem reprodução confirmada: como no video.md.
+- Cliente muito irritado, pelo nível Humor do cliente da
+  `client-message-language`: o relatório interno e, no lugar do relatório
+  para o cliente ou das perguntas, só a fala de encaminhamento dessa skill,
+  com saudação e assinatura. Vale mesmo quando ainda faltariam perguntas. No
+  relatório interno, em Próximos passos, o primeiro item é passar o chamado
+  ao time de atendimento e suporte, citando os trechos da mensagem que
+  mostram a irritação.
 
 Exemplos em [examples.md](examples.md).
 
@@ -274,7 +329,7 @@ Exemplos em [examples.md](examples.md).
 [Primeira linha: tecnologia (CMS, IO, Deco, FastStore ou nao_identificada), repositório da vitrine e vendor, com a origem (cadastro ou identificação, com a situação); se a identificação rodou e divergiu do cadastro, os dois. Depois, arquivo e como funciona hoje. PR ou commit só quando explicam a mudança. Em cadastro, a tela e o registro do admin.]
 
 ## Causa mais provável
-[Só em suporte. Uma das quatro causas do classificacao.md, com a evidência. Se houver mais de um candidato, diga qual falta reproduzir.]
+[Só em suporte. Uma das quatro causas do classificacao.md, com a evidência que você viu: tela do admin, arquivo ou o que apareceu na loja no ar. Não use dedução no lugar de leitura (passo 8). Se houver mais de um candidato, diga qual falta reproduzir.]
 
 ## Tipo de demanda
 [Só em evolução, no lugar de Causa mais provável: o valor da tabela do classificacao.md.]
