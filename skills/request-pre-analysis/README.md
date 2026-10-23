@@ -1,7 +1,7 @@
 # request-pre-analysis
 
-Faz a pré-análise de um chamado de cliente de loja VTEX (problema, dúvida ou
-pedido de mudança). Confere a loja no ar, o código nos repositórios e, quando
+Faz a pré-análise de um chamado de cliente de loja VTEX (problema, dúvida,
+pedido de mudança ou feedback). Confere a loja no ar, o código nos repositórios e, quando
 precisa, o admin VTEX, **sem alterar nada**. Classifica o chamado como
 evolução ou suporte e devolve:
 
@@ -42,7 +42,7 @@ Faz a pré-análise desse chamado da Degusta Casa: [mensagem do cliente + prints
 | 4 | Conferência da loja no ar (Playwright headless) | `setup-playwright` |
 | 5 | Leitura do código (`gh` só leitura) | — |
 | 6 | Classificação: evolução ou suporte | `classificacao.md`, `layout.md` |
-| 7 | Admin VTEX, quando o cadastro pode explicar o caso | `vtex-admin-login` |
+| 7 | Admin VTEX, quando o cadastro pode explicar o caso ou para ler as transações em chamados de pagamento | `vtex-admin-login` |
 | 8 | Resposta: perguntas ou relatórios | `client-message-language` |
 
 Mensagem com arquivo de vídeo segue também o `video.md`.
@@ -56,6 +56,8 @@ Mensagem com arquivo de vídeo segue também o `video.md`.
 | Evolução sem layout, sem código | Consome | Atendimento e suporte (cotação para o cliente) |
 | Suporte com código | Não consome | Desenvolvimento (cotação interna) |
 | Suporte de cadastro | Não consome | Atendimento e suporte |
+| Suporte com terceiro (provedor de pagamento, ERP, antifraude…) | Não consome | Atendimento e suporte, que orienta o cliente a falar com o terceiro |
+| Suporte com a plataforma (falha na própria VTEX) | Não consome | Atendimento e suporte, que abre chamado com a VTEX |
 | Solução de dúvida | Não consome | Atendimento e suporte |
 
 Regra rápida: se o que já foi entregue deixou de funcionar, é **suporte**. Se
@@ -69,8 +71,9 @@ A skill para e devolve só o retorno de uma skill auxiliar quando:
   `incompleto`);
 - a `setup-playwright` está em `aguardando_instalacao`;
 - a `vtex-admin-login` não está `pronto` (por exemplo, `aguardando_login`);
-- a loja não carregou e não há vídeo (devolve uma fala fixa pedindo prints ou
-  vídeo).
+- a loja não carregou e não há vídeo (devolve uma fala fixa: em erro, pede
+  prints da tela ou o passo a passo da simulação do problema; em pedido de
+  mudança, pede prints da tela atual e o link da página).
 
 ## Chamado de feedback
 
@@ -91,8 +94,11 @@ suporte, como o do cliente muito irritado:
 
 - Não altera repositório, arquivos locais da loja, cadastro nem `lojas.json`.
 - Admin só leitura.
-- No checkout, pode simular compra com dados de teste, mas **nunca** clica em
-  "Finalizar compra".
+- No checkout, pode simular compra com dados de teste, mas não clica em
+  "Finalizar compra". A única exceção é quando uma pessoa da Agência e-Plus
+  pede explicitamente, e só naquele chamado: o teste usa Pix (ou boleto, sem
+  Pix). Sem Pix e sem boleto, o teste não é feito e o relatório interno diz
+  isso.
 - Não estima horas.
 - Não promete prazo nem decide se a entrega cabe numa data; a data pedida vai
   para os próximos passos do relatório interno.
@@ -102,6 +108,7 @@ suporte, como o do cliente muito irritado:
 ```markdown
 # Relatório interno para a Agência e-Plus
 ## O que o chamado pede
+## Humor do cliente         (sempre: nível, trechos da mensagem e tom aplicado)
 ## O que está no ar e no código
 ## Causa mais provável      (suporte)
 ## Tipo de demanda          (evolução)
@@ -111,7 +118,7 @@ suporte, como o do cliente muito irritado:
 ### Passo a passo: [o que muda]   (alteração de cadastro, com print em cada passo)
 
 # Relatório para o cliente
-[saudação] / Resumo / Direcionamento / [aviso de cotação] / pergunta de confirmação / assinatura
+[saudação] / Resumo / [suporte com terceiro: onde ver, links dos registros e mensagem pronta ao terceiro] / Direcionamento / [aviso de cotação] / pergunta de confirmação / assinatura
 ```
 
 ## Passo a passo no cadastro
@@ -123,6 +130,36 @@ certo, encaminha para o cliente fazer. Por isso o texto segue a linguagem do
 cliente: nomes como aparecem na tela, sem nome interno de bloco nem código.
 Os prints são tirados só na leitura: nada é editado, salvo ou publicado para
 fazer o print.
+
+## Pagamento recusado pelo provedor
+
+Quando o cliente não consegue pagar, a skill lê no admin Pedidos > Transações
+e as condições de pagamento, separa por forma de pagamento (Pix, cartão,
+boleto) e vê se cada uma voltou a aprovar. Se a recusa vem do provedor, o
+chamado é Suporte com terceiro:
+
+- sem testes extras pedidos ao cliente: o diagnóstico já está fechado;
+- o relatório para o cliente mostra onde ver a recusa no painel, os links de
+  cada transação e uma mensagem pronta para cada provedor que segue recusando;
+- o motivo de o cliente falar com o provedor é dito de forma leve: pagamento e
+  integração com provedor externo à plataforma não fazem parte do suporte da
+  agência;
+- com cliente muito irritado, ele recebe só a fala de encaminhamento, e a
+  mensagem pronta fica no relatório interno para o atendimento.
+
+## Falha na plataforma VTEX
+
+Quando a evidência aponta para a própria VTEX (por exemplo, a tentativa de
+pagamento nem chega ao provedor, ou o checkout devolve erro 5xx numa rota da
+VTEX), o relatório interno sai completo: linha do tempo, o que foi
+descartado, registros, alcance, https://status.vtex.com e um rascunho do
+chamado para o suporte da VTEX. O cliente recebe só uma fala de
+encaminhamento ao atendimento e suporte, sem explicar o que foi encontrado:
+
+> Recebemos o seu chamado e já começamos a analisar. Estamos direcionando para o time de atendimento e suporte, que vai dar seguimento e entrar em contato com você em breve.
+
+Ainda não houve chamado real desse tipo; a regra deve ser revista no primeiro
+caso.
 
 ## Links nos relatórios
 
@@ -142,7 +179,7 @@ chamado.
 | `classificacao.md` | Evolução x suporte, causas, cobrança, cotação e direcionamento |
 | `layout.md` | Evolução com layout: referência visual e seção "Layout a desenvolver" |
 | `video.md` | O que fazer quando a mensagem traz vídeo |
-| `examples.md` | Exemplos de saída (anexo que não abre, vídeo, loja inacessível etc.) |
+| `examples.md` | Exemplos de saída (anexo que não abre, vídeo, loja inacessível, feedback, pagamento recusado pelo provedor etc.) |
 
 ## Depende de
 

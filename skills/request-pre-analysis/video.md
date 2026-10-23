@@ -12,7 +12,7 @@ tiver arquivo de vídeo. Print e link continuam sendo abertos.
    se o caso pedir e relatórios. Não é preciso assistir ao vídeo para isso.
 4. Reprodução não confirmada, inclusive quando a página não carregar (não peça
    outro vídeo; diga isso no relatório e encaminhe mesmo assim):
-   - Não classifique evolução nem suporte, não use as quatro causas e não use
+   - Não classifique evolução nem suporte, não use as causas do classificacao.md e não use
      o admin para fechar causa.
    - O chamado vai para o time de atendimento e suporte, para uma apuração
      mais detalhada.

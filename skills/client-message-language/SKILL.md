@@ -55,7 +55,7 @@ cobrou. Classifique em um dos quatro níveis e ajuste a mensagem a ele.
 |---|---|---|
 | Bom humor | Cordial, agradece, brinca, usa emoji ou "rs" | Tom padrão, um pouco mais leve. Pode agradecer o recado ou retribuir a cordialidade em uma frase. Sem piada, gíria nem emoji. |
 | Neutro | Pede o que precisa, sem emoção marcada | Tom padrão. |
-| Irritado | Reclama, mostra pressa ou frustração, diz que o problema voltou, que está perdendo venda ou que já cobrou | Abra reconhecendo o incômodo em uma frase concreta, sobre o problema dela ("Sabemos que o menu sem Utensílios atrapalha quem procura esses produtos."). Depois, direto ao ponto, sem frase leve. |
+| Irritado | Reclama, mostra pressa ou frustração, diz que o problema voltou, que está perdendo venda ou que já cobrou | Abra com empatia, reconhecendo o incômodo em uma frase concreta sobre o problema dela ("Sabemos que o menu sem Utensílios atrapalha quem procura esses produtos."). Mostre que a equipe já agiu e está junto ("Já conferimos…", "Para agilizar, deixamos pronto…"). Depois, vá ao ponto com cordialidade, sem frase leve e sem frase seca. Siga a seção Cordialidade. |
 | Muito irritado | Xinga ou ofende a equipe, ameaça cancelar o contrato, processar ou reclamar em Procon ou Reclame Aqui, escreve boa parte em maiúsculas, ou diz que cobrou várias vezes sem resposta | Não responda o chamado. Use só a fala de encaminhamento abaixo. |
 
 Fala de encaminhamento, com a saudação e a assinatura. Use uma das três
@@ -104,8 +104,9 @@ Em todos os níveis:
   a ofensa.
 - Não peça desculpa por um erro que a análise não confirmou. "Sentimos muito
   pelo transtorno" fala do incômodo, não de culpa.
-- O nível não muda os fatos, os termos nem as frases fixas. Muda só a
-  abertura, o reconhecimento e o quanto o texto é leve.
+- O nível não muda os fatos, os termos nem as frases fixas. Muda a abertura,
+  o reconhecimento, o quanto o texto é leve e, no irritado, o cuidado de
+  mostrar que a equipe está junto, até o fecho (seção Cordialidade).
 
 ## Chamado de feedback
 
@@ -147,6 +148,44 @@ Soam como texto automático e não entram: "foi identificado", "procederemos",
 importante ressaltar", "vale destacar", "em suma". Não diga que o texto foi
 escrito por IA.
 
+### Cordialidade
+
+Direto não é seco. Vale para todos os níveis e pesa mais com a pessoa
+irritada: ela já está incomodada, e uma frase fria soa como descaso. Seja
+profissional e acolhedor, nunca rude.
+
+- Fale como quem está do lado dela. Use "nós" para o que a equipe fez e vai
+  fazer ("Conferimos", "Deixamos pronto", "Vamos acompanhar com você").
+- Não soe como defesa nem como quem passa a culpa adiante. Evite "não é
+  problema da loja", "a responsabilidade é sua", "o contrato é seu", "precisa
+  partir de você" e "quem recusa é…" dito de forma fria. Diga o que encontrou
+  e por que aquele é o caminho, sem apontar culpado.
+- Quando a pessoa precisa agir, explique o motivo com cuidado e ofereça ajuda
+  no mesmo trecho: "Por envolver pagamentos e a integração com um provedor
+  externo à plataforma, esse contato é feito diretamente por você com a
+  maxiPago. Para facilitar, já deixamos a mensagem pronta abaixo." Use só o
+  motivo real; não invente regra do provedor ou de terceiros para justificar.
+- Prefira pedido a ordem no texto corrido: "Pedimos que você envie…", "O
+  próximo passo é…", "Você pode…". O imperativo fica para listas de passos
+  ("Abra", "Clique em").
+- Feche mostrando que a equipe continua junto, com uma ação concreta: "Assim
+  que tiver o retorno, nos avise, e conferimos com você se os pagamentos
+  voltaram." Não use frase pronta de disponibilidade (veja a lista acima).
+- Cordialidade não é pedido de desculpa por erro que a análise não confirmou,
+  nem promessa de prazo ou de correção.
+
+Evite:
+
+```text
+A recusa vem da própria maxiPago e não de uma mudança na loja. Como o contrato com a maxiPago é seu, o contato com ela precisa partir de você.
+```
+
+Escreva:
+
+```text
+Conferimos a loja e as transações, e a loja está enviando os pagamentos normalmente. As recusas estão vindo da maxiPago, a empresa que processa o Pix da sua loja. Por envolver pagamentos e a integração com um provedor externo à plataforma, esse contato é feito diretamente por você com ela. Para facilitar, já deixamos abaixo a mensagem pronta e os links das transações.
+```
+
 ## Termos
 
 A pessoa não é técnica. Prefira a palavra do dia a dia. Se um termo técnico
@@ -166,6 +205,13 @@ arquivo, repositório nem trecho.
 Não fale de débito em banco de horas. Não prometa correção que a análise não
 confirmou.
 
+Exceção: o texto que a pessoa vai ver no painel ou repassar a um terceiro.
+Quando você diz o que aparece numa tela do admin (por exemplo, "MaxiPagoV4" e
+"Message: denied." em Eventos da transação), cite esse texto exatamente, entre
+aspas, sem traduzir. Uma mensagem pronta para a pessoa enviar a um provedor ou
+outro terceiro pode trazer os termos que ele entende (código, TID, NSU, ID da
+transação). A explicação em volta continua sem termo técnico.
+
 ## Prazo
 
 Nunca prometa entregar algo até uma data, para um evento ou período (Black
@@ -182,11 +228,11 @@ como o que ela quer, sem virar promessa de entrega.
 ## Perguntas
 
 Abra com esta frase, sem variar o texto: "Para podermos seguir com a análise,
-responda às perguntas abaixo:". Depois, numere as perguntas (1., 2., 3.), uma
-por item, para a pessoa responder citando o número, inclusive quando houver
-uma pergunta só. Cada pergunta fica em frase curta, em segunda pessoa, como
-quem já está na conversa: "Você quer que o item apareça em qual menu?". Duas
-dúvidas sobre o mesmo ponto podem ficar no mesmo número.
+pedimos que você responda às perguntas abaixo:". Depois, numere as perguntas
+(1., 2., 3.), uma por item, para a pessoa responder citando o número,
+inclusive quando houver uma pergunta só. Cada pergunta fica em frase curta, em
+segunda pessoa, como quem já está na conversa: "Você quer que o item apareça
+em qual menu?". Duas dúvidas sobre o mesmo ponto podem ficar no mesmo número.
 
 Quando a pergunta pede uma escolha sobre o que a análise encontrou (por
 exemplo, como seguir com produtos sem estoque), conte antes o que vimos na
@@ -200,7 +246,8 @@ caminhos possíveis ficam na própria pergunta, para ela escolher um.
 No resumo, dois parágrafos curtos bastam. Lista só quando houver passos
 distintos que ela precisa reconhecer. As frases fixas da pré-análise
 (direcionamento de um time só, aviso de cotação, pergunta de confirmação,
-aviso de apuração e falas de loja inacessível) ficam na skill
+aviso de apuração, falas de loja inacessível e encaminhamento de falha na
+plataforma VTEX) ficam na skill
 `request-pre-analysis` e não mudam. Com cliente muito irritado, nenhuma delas
 entra: só a fala de encaminhamento (veja Humor do cliente).
 

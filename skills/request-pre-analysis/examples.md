@@ -16,7 +16,7 @@ Saída, na primeira mensagem para o cliente:
 ```markdown
 Olá, equipe Banana Brasil! Tudo bem?
 
-Para podermos seguir com a análise, responda às perguntas abaixo:
+Para podermos seguir com a análise, pedimos que você responda às perguntas abaixo:
 
 1. Você consegue reenviar a referência do formulário? O link abre como página não encontrada. Pode ser um print, um arquivo ou outro link.
 2. Os campos de quantidade comprada, local da compra, data da compra e lote entram sempre, ou só quando o contato é sobre produto?
@@ -59,7 +59,7 @@ Saída, na primeira mensagem para o cliente:
 ```markdown
 Olá, equipe Degusta Casa! Tudo bem?
 
-Não foi possível simular o erro navegando pela loja. Você consegue fornecer mais dados, como prints da tela ou um vídeo da navegação?
+Tentamos simular o erro navegando pela loja, mas não conseguimos ver o que você descreveu. Você poderia nos enviar mais detalhes, como prints da tela ou o passo a passo da simulação do problema?
 
 Atendimento Agência e-Plus
 ```
@@ -75,7 +75,7 @@ Saída, na primeira mensagem para o cliente:
 ```markdown
 Olá, equipe Miess! Tudo bem?
 
-Para podermos seguir com a análise, responda às perguntas abaixo:
+Para podermos seguir com a análise, pedimos que você responda às perguntas abaixo:
 
 1. Você tem uma referência de como quer ver essas informações? Pode ser um print, uma imagem ou o link de outra loja que mostre algo parecido.
 2. No e-mail de faturamento, as informações da nota entram em qual parte: logo no início, junto do resumo do pedido ou no final?
@@ -97,7 +97,7 @@ Saída, na primeira mensagem para o cliente:
 ```markdown
 Olá, equipe Hector Albertazzi! Tudo bem?
 
-Para podermos seguir com a análise, responda às perguntas abaixo:
+Para podermos seguir com a análise, pedimos que você responda às perguntas abaixo:
 
 1. Qual é o telefone novo que entra no lugar de +55 11 99592-2595, na mensagem de WhatsApp da tela "Solicitação enviada com sucesso!"? Esse número vale para o português e para o inglês.
 
@@ -114,9 +114,9 @@ O telefone da mensagem de WhatsApp da tela "Solicitação enviada com sucesso!" 
 
 Estamos direcionando essa demanda de evolução para a equipe de desenvolvimento.
 
-Sua solicitação foi encaminhada para cotação. Em breve você receberá o valor e mais detalhes.
+Encaminhamos a sua solicitação para cotação. Em breve você vai receber o valor e mais detalhes.
 
-É isso mesmo que você precisava? Se quiser corrigir ou adicionar mais alguma informação, pode fazer isso agora, antes de seguirmos com o encaminhamento do chamado para a próxima etapa.
+É isso mesmo que você precisava? Se quiser corrigir ou acrescentar alguma informação, fique à vontade para nos contar agora, antes de seguirmos com o chamado para a próxima etapa.
 
 Atendimento Agência e-Plus
 ```
@@ -140,7 +140,7 @@ No celular, o "Regulamento" do rodapé está sem link, por isso o toque não abr
 
 A vitrine "Encontre o presente ideal" mostra os produtos da lista "Recomendação de presentes". Os 12 produtos dessa lista estão sem estoque no site, como o Tablete Biscofner, o Tablete Dubai e o Bombom Art de L'Ocean. Como a vitrine mostra só produtos disponíveis para compra, ela fica vazia, no celular e no computador.
 
-Para podermos seguir com a análise, responda às perguntas abaixo:
+Para podermos seguir com a análise, pedimos que você responda às perguntas abaixo:
 
 1. Como você quer seguir com a vitrine "Encontre o presente ideal"? Você pode repor o estoque desses 12 produtos, trocar os produtos dessa lista por outros com estoque ou usar outra lista de produtos na vitrine. Se for trocar, diga quais produtos ou qual lista entram.
 
@@ -200,6 +200,10 @@ Trecho do relatório interno:
 
 Feedback negativo. A Central Cabos diz que, depois de intervenções na loja, outras funções param de funcionar, e pede para avaliarmos os testes feitos depois de cada alteração. Cita como exemplo o rodapé desatualizado no computador e o botão do WhatsApp.
 
+## Humor do cliente
+
+Irritado. A mensagem é educada, mas mostra frustração com problemas que se repetem: "a frequência dessas situações está chamando nossa atenção". Ficou entre neutro e irritado; pela regra, irritado. Tom: fala de feedback negativo, com saudação e assinatura.
+
 ## Próximos passos
 
 1. Passar o chamado ao time de atendimento e suporte: "a frequência dessas situações está chamando nossa atenção" e "como garantir maior estabilidade nas próximas alterações?".
@@ -230,6 +234,10 @@ Trecho do relatório interno:
 
 Feedback positivo. A Kolplast agradece a entrega da nova página de categoria.
 
+## Humor do cliente
+
+Bom humor: "ficou exatamente como a gente queria, obrigada a todos". Tom: fala de feedback positivo, com saudação e assinatura.
+
 ## O que está no ar e no código
 
 Feedback, sem ponto concreto na loja para analisar.
@@ -252,3 +260,79 @@ Muito obrigado pelo retorno! Ficamos felizes em saber que a entrega atendeu ao q
 
 Atendimento Agência e-Plus
 ```
+
+# Pagamento recusado pelo provedor
+
+Entrada: a Bivik diz que, desde ontem, os clientes não conseguem pagar com Pix
+nem com cartão. O checkout chega ao pagamento normalmente. Em Pedidos >
+Transações, todos os Pix desde 21/10 às 12:39 estão cancelados, e os eventos
+mostram MaxiPagoV4 com `Authorization response received: [200 OK]` e
+`Message: denied.`. O boleto, também pelo maxiPago, falha com "The provider
+did not returned a valid Bank Issued Invoice URL". No cartão, uma tentativa
+foi negada pelo banco do cartão (código 57), mas o pedido seguinte, um
+Mastercard, foi autorizado e liquidado pela CieloEcommerce.
+
+Trecho do relatório interno:
+
+```markdown
+## Humor do cliente
+
+Irritado. A mensagem é cordial ("Pessoal bom dia", "porfavor", "Valeu"), mas mostra pressa e impacto na venda: "Estamos desde ontem com um problema" e "Preciso arrumar isso urgente". Ficou entre neutro e irritado; pela regra, irritado. Tom: abertura com empatia sobre as vendas paradas, equipe ao lado dele, o contato com o provedor explicado com cuidado e a mensagem pronta para facilitar.
+
+## Causa mais provável
+
+Configuração ou conteúdo, sem mudança de código, do lado do provedor de pagamento. O maxiPago recusa todos os Pix (`Message: denied.`) e não gera boleto desde 21/10, às 12:39. O cartão, pela CieloEcommerce, está funcionando: o pedido 529622 foi autorizado em 23/10 às 15:06. A recusa do 529602 (código 57) foi do banco daquele cartão.
+
+## Cobrança
+
+Suporte com terceiro: não consome do banco de horas. Orientação para contato com o terceiro (maxiPago), sem código, sem cotação e sem passo a passo no cadastro.
+
+## Próximos passos
+
+1. Enviar à Bivik o relatório abaixo, com os links das transações e a mensagem pronta para o maxiPago. Não pedir novos testes: o diagnóstico está fechado.
+2. Contingência, só como informação: a regra "Pix - MercadoPago" está desligada. Quem decide ligá-la é a Bivik.
+3. Quando a Bivik avisar que o maxiPago respondeu, conferir em Pedidos > Transações se os novos Pix estão sendo aprovados.
+```
+
+Trecho do relatório para o cliente:
+
+````markdown
+Sabemos o quanto é preocupante ver os clientes sem conseguir pagar, e já conferimos tudo para você ter um caminho claro.
+
+Resumo do problema:
+
+Testamos uma compra na sua loja e analisamos as transações de pagamento no painel da VTEX. A boa notícia é que a loja está funcionando e enviando os pagamentos normalmente, e o cartão também está sendo aprovado: um pedido com Mastercard passou hoje, às 15h06. A recusa de cartão que apareceu antes foi do banco do próprio comprador.
+
+O que está travando é o Pix e o boleto. Desde 21/10, por volta das 12h40, a maxiPago, empresa que processa esses pagamentos na sua loja, está recusando todas as tentativas. Por envolver pagamentos e a integração com um provedor externo à plataforma, esse contato é feito diretamente por você com a maxiPago. Para facilitar, deixamos abaixo onde ver a recusa e uma mensagem pronta para enviar.
+
+**Onde ver a recusa no painel da VTEX**
+
+1. No menu da esquerda, abra Pedidos > Transações: https://bivik.myvtex.com/admin/pci-gateway/#/transactions
+2. Clique na transação. Os links abaixo já abrem direto nela.
+3. Desça até Eventos da transação. No Pix, aparece "MaxiPagoV4" com "Message: denied.".
+
+Transações recusadas pela maxiPago:
+- Pedido 529552, Pix, 21/10 às 12h39, a primeira recusa: https://bivik.myvtex.com/admin/pci-gateway/#/transactions/60E107A1E24A454B918C8BD0753912BE
+
+**Mensagem para enviar à maxiPago**
+
+Pedimos que você envie o texto abaixo pelo suporte da maxiPago, junto com um print da tela de Eventos da transação.
+
+```text
+Olá, equipe maxiPago.
+
+Somos a Bivik Jeans (loja VTEX, conta "bivik"). Desde 21/10/2026, por volta das 12h40, todos os pagamentos com Pix da nossa loja estão sendo recusados por vocês, e os boletos não estão sendo gerados. O último Pix aprovado foi em 21/10/2026, às 09h56.
+
+Exemplo:
+- Pedido 529552, Pix, 21/10/2026 12h39, transação VTEX 60E107A1E24A454B918C8BD0753912BE, resposta "Message: denied."
+
+Pedimos que verifiquem com urgência o que mudou na nossa conta e nos digam o que precisamos fazer para voltar a receber.
+
+Obrigado,
+[seu nome] – Bivik Jeans
+```
+
+Assim que a maxiPago responder, nos avise, e conferimos com você no painel se os pagamentos voltaram a ser aprovados.
+
+Estamos direcionando essa demanda de suporte para a equipe de atendimento e suporte.
+````

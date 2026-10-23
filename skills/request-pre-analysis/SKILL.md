@@ -58,9 +58,10 @@ loja. Se faltar alguma, peça antes de analisar.
 - Requisições permitidas à loja: a página no ar e os GET das skills
   `find-store-repository`, `identify-store-technology` e
   `identify-store-vendor`. Esses GET não substituem o Playwright na
-  conferência do trecho.
-- Carrinho e checkout: no fluxo do passo 4. Nunca clique no botão final de
-  "Finalizar compra".
+  conferência do trecho. Fora da loja, só a leitura de https://status.vtex.com
+  (seção Falha na plataforma VTEX).
+- Carrinho e checkout: no fluxo do passo 4. Não clique no botão final de
+  "Finalizar compra", salvo na exceção de Compra de teste, no passo 4.
 - Não estime hora.
 - Não prometa prazo nem diga se a entrega cabe numa data, num evento ou num
   período (seção Prazo, na `client-message-language`). Se a pessoa citar uma
@@ -190,12 +191,12 @@ Página não carregada e mensagem sem vídeo: não analise o código e não entr
 os relatórios. A resposta traz só uma destas falas, conforme o que a mensagem
 descreve:
 
-- Problema, erro ou dúvida: "Não foi possível simular o erro navegando pela
-  loja. Você consegue fornecer mais dados, como prints da tela ou um vídeo da
-  navegação?"
-- Pedido de mudança ou de algo novo: "Não foi possível acessar a loja para
-  conferir o trecho da sua solicitação. Você consegue fornecer mais dados,
-  como prints da tela atual e o link da página que você quer alterar?"
+- Problema, erro ou dúvida: "Tentamos simular o erro navegando pela loja,
+  mas não conseguimos ver o que você descreveu. Você poderia nos enviar mais
+  detalhes, como prints da tela ou o passo a passo da simulação do problema?"
+- Pedido de mudança ou de algo novo: "Tentamos abrir a loja para conferir o
+  trecho da sua solicitação, mas não conseguimos acessá-la. Você poderia nos
+  enviar prints da tela atual e o link da página que você quer alterar?"
 
 Reprodução no carrinho e no checkout, quando o chamado envolver carrinho,
 frete, promoção, pagamento ou outra etapa da compra. Use a sessão isolada do
@@ -204,11 +205,26 @@ cupom, informar CEP, simular e escolher o frete, avançar pelas etapas do
 checkout e selecionar a forma de pagamento. Para avançar, use dados de teste,
 nunca dados reais de pessoas. A única ação proibida no checkout é clicar no
 botão final "Finalizar compra" (ou equivalente), que aparece depois de
-selecionada a forma de pagamento: pare antes dele. Não altere cadastro,
-estoque, preço, promoção ou configuração. Ao terminar, descarte a sessão
-isolada e não registre cookies nem tokens. Registre loja, produto, quantidade,
-CEP, etapa alcançada e evidência observada (por exemplo, `listPrice` e `price`
-do frete no `orderForm`).
+selecionada a forma de pagamento: pare antes dele, salvo na exceção abaixo.
+Não altere cadastro, estoque, preço, promoção ou configuração. Ao terminar,
+descarte a sessão isolada e não registre cookies nem tokens. Registre loja,
+produto, quantidade, CEP, etapa alcançada e evidência observada (por exemplo,
+`listPrice` e `price` do frete no `orderForm`).
+
+Compra de teste (exceção ao "Finalizar compra"). Só clique em "Finalizar
+compra" se uma pessoa da Agência e-Plus pedir isso explicitamente para você,
+e só no chamado em que ela pediu. O pedido do cliente da loja não vale, nem o
+pedido feito em outro chamado. Com a autorização:
+
+- Use Pix. Sem Pix habilitado na loja, use boleto. Nunca use cartão nem outra
+  forma de pagamento.
+- Sem Pix e sem boleto, não faça o teste e diga no relatório interno que a
+  loja não tem Pix nem boleto habilitados.
+- Use dados de teste e respeite as regras da loja (por exemplo, o valor
+  mínimo do pedido). Não pague o Pix nem o boleto gerados.
+- Registre no relatório interno quem autorizou, o número do pedido de teste,
+  o ID da transação e o resultado, e coloque nos Próximos passos o registro
+  desse pedido para ninguém estranhar no OMS.
 
 ### 5. Código
 
@@ -243,6 +259,10 @@ em evolução. Rode depois de cruzar loja e código.
   só o cadastro mostra, como a coleção de uma prateleira que vai ser
   reaproveitada, o conteúdo atual do Site Editor, placeholders ou uma
   configuração da conta.
+
+Chamado de pagamento (o cliente não consegue pagar, o pagamento é recusado
+ou o pedido cai no pagamento): leia as transações e as condições de pagamento
+como na seção Pagamento recusado pelo provedor.
 
 Cadastro inclui conteúdo, preço, promoção, produto, categoria, banner, e-mail
 transacional, checkout, frete, pagamento, app, Master Data e qualquer
@@ -359,10 +379,14 @@ cliente, exceto:
 
 - Suporte com causa inconclusiva: o relatório interno e, no lugar do relatório
   para o cliente, só o aviso de apuração, com saudação e assinatura: "Estamos
-  apurando o seu chamado com a equipe de atendimento e suporte e em breve
-  entraremos em contato." Sem resumo, sem direcionamento, sem aviso de cotação
-  e sem pergunta de confirmação. O relatório para o cliente só entra quando a
-  causa já pode ser dita sem prometer correção errada.
+  analisando o seu chamado com mais cuidado junto à equipe de atendimento e
+  suporte, e em breve voltamos a falar com você." Sem resumo, sem
+  direcionamento, sem aviso de cotação e sem pergunta de confirmação. O
+  relatório para o cliente só entra quando a causa já pode ser dita sem
+  prometer correção errada.
+- Falha na plataforma VTEX (seção Falha na plataforma VTEX): o relatório
+  interno completo e, no lugar do relatório para o cliente, só a fala de
+  encaminhamento dessa seção, com saudação e assinatura.
 - Mensagem com vídeo sem reprodução confirmada: como no video.md.
 - Cliente muito irritado, pelo nível Humor do cliente da
   `client-message-language`: o relatório interno e, no lugar do relatório
@@ -387,6 +411,11 @@ cliente, exceto:
     feedback. Depois, o que cada ponto concreto pede, e o que faltaria
     perguntar à pessoa.
 
+O relatório interno sempre traz a seção Humor do cliente, logo depois de O
+que o chamado pede, em todos os casos acima: causa inconclusiva, falha na
+plataforma VTEX, vídeo, cliente muito irritado e feedback. Ela registra o que
+você leu na mensagem, mesmo quando a resposta ao cliente é só uma fala fixa.
+
 Exemplos em [examples.md](examples.md).
 
 ```markdown
@@ -395,11 +424,14 @@ Exemplos em [examples.md](examples.md).
 ## O que o chamado pede
 [Uma frase: trecho da loja e o que o cliente pede. Pode citar o nome do cliente.]
 
+## Humor do cliente
+[Nível detectado pela `client-message-language` (bom humor, neutro, irritado ou muito irritado). Os trechos da mensagem, entre aspas, que mostram esse nível. Se houve dúvida entre dois níveis, quais e por que ficou neste. O tom aplicado na resposta (por exemplo: abertura com empatia, cordialidade, fala de encaminhamento).]
+
 ## O que está no ar e no código
 [Primeira linha: tecnologia (CMS, IO, Deco, FastStore ou nao_identificada), repositório da vitrine e vendor, com a origem (cadastro ou identificação, com a situação); se a identificação rodou e divergiu do cadastro, os dois. Depois, arquivo (link do GitHub, com as linhas) e como funciona hoje. PR ou commit (link do GitHub) só quando explicam a mudança. Página conferida com a URL completa da loja. Em cadastro, a tela (URL do admin) e o registro. Veja Links.]
 
 ## Causa mais provável
-[Só em suporte. Uma das quatro causas do classificacao.md, com a evidência que você viu: tela do admin, arquivo ou o que apareceu na loja no ar. Não use dedução no lugar de leitura (passo 8). Se houver mais de um candidato, diga qual falta reproduzir.]
+[Só em suporte. Uma das causas do classificacao.md, com a evidência que você viu: tela do admin, arquivo ou o que apareceu na loja no ar. Não use dedução no lugar de leitura (passo 8). Se houver mais de um candidato, diga qual falta reproduzir.]
 
 ## Tipo de demanda
 [Só em evolução, no lugar de Causa mais provável: o valor da tabela do classificacao.md.]
@@ -429,19 +461,22 @@ Exemplos em [examples.md](examples.md).
 Resumo do problema:
 [O que foi pedido e o que encontramos.]
 
+[Só em Suporte com terceiro: onde ver a evidência, os links dos registros e uma mensagem pronta para cada terceiro. Veja Suporte com terceiro e, em pagamento, Pagamento recusado pelo provedor.]
+
 [Direcionamento, pelo classificacao.md.]
 
-[Só quando a coluna Cotação do classificacao.md diz que a cotação vai para o cliente: "Sua solicitação foi encaminhada para cotação. Em breve você receberá o valor e mais detalhes."]
+[Só quando a coluna Cotação do classificacao.md diz que a cotação vai para o cliente: "Encaminhamos a sua solicitação para cotação. Em breve você vai receber o valor e mais detalhes."]
 
-É isso mesmo que você precisava? Se quiser corrigir ou adicionar mais alguma informação, pode fazer isso agora, antes de seguirmos com o encaminhamento do chamado para a próxima etapa.
+É isso mesmo que você precisava? Se quiser corrigir ou acrescentar alguma informação, fique à vontade para nos contar agora, antes de seguirmos com o chamado para a próxima etapa.
 
 [Assinatura.]
 ```
 
 O relatório interno é técnico: pode nomear o cliente e orientar a agência
 ("explicar para a Degusta Casa..."). A exceção é o passo a passo no
-cadastro, escrito para o cliente (seção Passo a passo no cadastro). O relatório para o cliente segue a
-`client-message-language`, inclusive na saudação e na assinatura.
+cadastro, escrito para o cliente (seção Passo a passo no cadastro). O
+relatório para o cliente segue a `client-message-language`, inclusive na
+saudação e na assinatura.
 
 No resumo, use o rótulo que couber: Resumo do problema, Resumo da solicitação
 ou Resumo da evolução.
@@ -461,7 +496,8 @@ fazer. Por isso ele precisa funcionar sozinho, para quem nunca abriu aquela
 tela.
 
 Ele vale também quando a correção já foi feita e só falta uma parte: monte o
-passo a passo do que falta. Não vale para o que é só código.
+passo a passo do que falta. Não vale para o que é só código, nem para Suporte
+com terceiro, em que nada muda no cadastro da loja.
 
 Como montar:
 
@@ -508,6 +544,188 @@ Prints:
   segue a regra de prints da seção Links.
 - Se uma tela não abriu, ou se não deu para chegar ao ponto sem alterar algo,
   diga isso no passo e não invente o caminho.
+
+## Suporte com terceiro
+
+Vale quando a falha está numa ferramenta externa à plataforma (provedor de
+pagamento, antifraude, ERP ou outra integração de terceiro), e não no código,
+no cadastro da loja nem na própria VTEX (para essa, veja Falha na plataforma
+VTEX). A classificação e o motivo de o cliente falar com o terceiro estão no
+[classificacao.md](classificacao.md). Pagamento tem regras próprias, na seção
+Pagamento recusado pelo provedor; os outros terceiros seguem esta seção.
+
+- Evidência, no passo 7, só leitura: a tela do admin onde a integração deixa
+  registro (por exemplo, a transação, o pedido ou a tela do app da
+  integração). Registre a ferramenta ou o app, a data e a hora, a mensagem de
+  erro exata e os IDs (pedido, transação, registro).
+- Sem testes extras: com a falha lida no registro, não peça ao cliente novos
+  testes nem confirmação de outras tentativas.
+- Relatório para o cliente, depois do resumo e antes do direcionamento: onde
+  ver a falha no painel (caminho do menu e texto exato da tela), os links dos
+  registros e uma mensagem pronta para o terceiro, no mesmo formato da
+  mensagem ao provedor de pagamento (item 3 da seção abaixo).
+- O motivo do contato direto vai de forma leve: "por envolver a integração
+  com uma ferramenta externa à plataforma". Siga a Cordialidade da
+  `client-message-language` e não invente outro motivo.
+- Próximos passos: o primeiro é enviar ao cliente esse relatório; o último é
+  conferir o registro depois do retorno do terceiro.
+- Cliente muito irritado vence: o cliente recebe só a fala de encaminhamento
+  desse nível, e o primeiro próximo passo é passar o chamado ao time de
+  atendimento e suporte. O caminho no painel, os links e a mensagem pronta
+  para o terceiro ficam no relatório interno, para o atendimento usar depois.
+  Vale também para pagamento recusado pelo provedor.
+
+## Pagamento recusado pelo provedor
+
+Vale quando o chamado é de pagamento e a recusa vem do provedor (maxiPago,
+Cielo, Rede, Mercado Pago, Pagar.me ou outro conector), e não da loja nem da
+VTEX. Se a tentativa nem chega ao provedor, veja Falha na plataforma VTEX.
+
+No passo 7, só leitura:
+
+- Em Pedidos > Transações
+  (`https://{vendor}.myvtex.com/admin/pci-gateway/#/transactions`), ache o
+  último pagamento aprovado de cada forma (Pix, cartão, boleto) e as
+  tentativas depois dele: status, data, cliente e pedido.
+- Abra a primeira recusa, uma recente e a da compra de teste, se ela foi
+  autorizada (passo 4). Em Eventos da transação, registre o conector, a
+  resposta (`Authorization response received`), a mensagem
+  (`Message: denied.`, `Connector Code: 57 …`), o adquirente, o TID e o NSU,
+  quando aparecerem.
+- Em `https://{vendor}.myvtex.com/api/payments/pvt/rules`, veja qual
+  afiliação atende cada forma de pagamento e quais regras estão ligadas. Não
+  copie para o relatório campo de chave, token ou senha.
+
+As transações dos clientes já mostram a recusa: sem a autorização da Compra de
+teste, não clique em "Finalizar compra" para reproduzir.
+
+Causa: quando o conector recebe a tentativa e devolve a recusa (por exemplo,
+`[200 OK]` com `denied` ou um código de recusa do adquirente), a causa é
+configuração ou conteúdo, sem mudança de código, do lado do provedor. A
+classificação é Suporte com terceiro, do [classificacao.md](classificacao.md):
+sem passo a passo no cadastro, com direcionamento para a equipe de
+atendimento e suporte.
+
+Quem fala com o provedor é o cliente: pagamento e integração com provedor são
+temas de alta sensibilidade, e o contrato da agência não inclui suporte a
+ferramentas externas à plataforma (ERP, provedor de pagamento, antifraude e
+outras). No relatório para o cliente, dê esse motivo de forma leve ("por
+envolver pagamentos e a integração com um provedor externo à plataforma"), no
+mesmo trecho em que oferece a mensagem pronta, sem soar como defesa ou como
+quem passa a culpa adiante (seção Cordialidade, na
+`client-message-language`). Não invente outro motivo, como uma regra do
+provedor.
+
+Separe por forma de pagamento e veja se cada uma voltou a aprovar. Releia a
+lista de transações logo antes de responder, porque ela muda ao longo do dia.
+Uma aprovação depois das recusas mostra que aquele provedor está funcionando.
+Nesse caso, uma recusa isolada do banco do cartão (como o código 57 da Cielo)
+é do cartão daquele comprador, e não do provedor: diga ao cliente que essa
+forma está funcionando, citando a aprovação, e não monte mensagem para esse
+provedor. A mensagem vai só para o provedor da forma que segue recusando.
+
+Sem testes extras. Com a recusa lida na transação, o diagnóstico está fechado.
+Não peça ao cliente novos testes, outro cartão ou confirmação de outras
+tentativas, e não deixe isso nos Próximos passos: custa tempo do cliente e não
+muda a tratativa.
+
+O relatório para o cliente, depois do resumo e antes do direcionamento,
+traz:
+
+1. **Onde ver a recusa.** O caminho no painel da VTEX (Pedidos >
+   Transações), o que clicar e o texto exato que aparece em Eventos da
+   transação para cada provedor.
+2. **Links das transações**, agrupados por provedor:
+   `https://{vendor}.myvtex.com/admin/pci-gateway/#/transactions/{id}`, cada
+   um com o pedido, a data e a forma de pagamento. Inclua a primeira recusa.
+3. **Uma mensagem pronta para cada provedor envolvido**, num bloco `text`
+   para copiar, com:
+   - a loja e a conta VTEX;
+   - desde quando a recusa acontece e o último pagamento aprovado;
+   - os pedidos, com a data e o ID da transação;
+   - o retorno exato e, quando houver, o código, o TID e o NSU;
+   - o que pedir ao provedor (verificar o motivo da recusa e dizer o que
+     regularizar);
+   - a assinatura com `[seu nome]`.
+
+   Diga antes do bloco por onde enviar (o suporte do provedor) e qual print
+   juntar (a tela de Eventos da transação).
+4. **Fecho**: pedir que a pessoa avise quando o provedor responder, para a
+   equipe conferir no painel se os pagamentos voltaram a ser aprovados.
+
+A mensagem ao provedor e o texto citado do painel seguem a exceção de Termos
+da `client-message-language`: podem trazer os termos técnicos, entre aspas
+quando copiados da tela. O texto em volta segue a regra normal. Os links do
+admin entram no relatório para o cliente porque ele tem acesso ao painel; os
+prints locais continuam só no relatório interno.
+
+No relatório interno, o primeiro item de Próximos passos é enviar ao cliente
+esse relatório, com a mensagem de cada provedor. Contingência no cadastro
+(como uma regra de outro provedor desligada) entra só como informação, sem
+alterar nada, e quem decide ligá-la é o cliente. O último item é conferir as
+transações em Pedidos > Transações depois do retorno do provedor.
+
+Exemplo em [examples.md](examples.md), em Pagamento recusado pelo provedor.
+
+## Falha na plataforma VTEX
+
+Vale quando a evidência aponta para a própria VTEX, e não para o código da
+loja, o cadastro ou um terceiro. Ainda não houve chamado real deste tipo:
+revise esta seção no primeiro caso.
+
+Sinais, no pagamento:
+
+- A tentativa não chega ao provedor: nos Eventos da transação, depois de
+  "Transaction authorization started" não há "Sending authorization request"
+  do conector, e aparece erro de um componente da VTEX (por exemplo,
+  PaymentGateway).
+- A transação fica parada num status, sem evento do conector, muito além do
+  tempo normal das outras transações.
+- A compra não vira transação: na Compra de teste, se ela foi autorizada
+  (passo 4), ou nos relatos dos clientes, o checkout devolve erro 5xx numa
+  rota da VTEX (`/api/checkout/...`, `/api/payments/...`) e nenhuma transação
+  aparece em Pedidos > Transações.
+
+Fora do pagamento, vale o mesmo raciocínio: erro que vem da plataforma (5xx
+numa API da VTEX, serviço fora do ar), com o código e o cadastro já
+descartados.
+
+Um erro 500 no checkout sozinho não basta: o `gatewayCallback` devolve 500
+também quando o provedor recusa. Leia os Eventos da transação antes de
+concluir. Se o conector recebeu a tentativa e respondeu, siga Pagamento
+recusado pelo provedor.
+
+Confira também https://status.vtex.com (só leitura) e registre se havia
+incidente aberto no horário das falhas.
+
+Causa: falha na plataforma VTEX. Classificação: Suporte com a plataforma, do
+[classificacao.md](classificacao.md).
+
+Relatório interno, com o máximo de informação:
+
+- Linha do tempo: primeiro e último erro e último sucesso, com data e hora.
+- O que foi descartado (código, cadastro, terceiro) e a evidência de cada um.
+- Registros lidos: pedido, transação, `orderFormId`, conector, eventos, a
+  mensagem de erro exata e a requisição com erro (rota, status, horário).
+- Alcance: formas de pagamento, páginas ou fluxos afetados, e quantas
+  tentativas e clientes.
+- O que o https://status.vtex.com mostrava.
+- Próximos passos: (1) passar o chamado ao time de atendimento e suporte;
+  (2) abrir chamado no suporte da VTEX com as evidências, com um rascunho do
+  texto no relatório interno (conta, IDs, horários, erro exato e como
+  reproduzir); (3) conferir os registros depois da resposta da VTEX.
+
+Relatório para o cliente: só esta fala, com saudação e assinatura, como o
+encaminhamento do cliente muito irritado. Sem resumo, sem dizer o que foi
+encontrado ou o que pode ter acontecido, sem direcionamento, sem aviso de
+cotação e sem pergunta de confirmação:
+
+```text
+Recebemos o seu chamado e já começamos a analisar. Estamos direcionando para o time de atendimento e suporte, que vai dar seguimento e entrar em contato com você em breve.
+```
+
+Com cliente muito irritado, vale a fala de encaminhamento desse nível, na
+`client-message-language`.
 
 ## Links
 

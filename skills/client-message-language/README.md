@@ -47,10 +47,23 @@ Antes de escrever, ler o humor da pessoa e ajustar a mensagem:
 |---|---|
 | Bom humor | Tom padrão, um pouco mais leve, sem piada nem emoji. |
 | Neutro | Tom padrão. |
-| Irritado | Reconhecer o incômodo em uma frase e ir direto ao ponto. |
-| Muito irritado (xinga, ameaça cancelar, processar, Procon/Reclame Aqui, tudo em maiúsculas, várias cobranças sem resposta) | Só uma das três falas de encaminhamento ao time de atendimento e suporte, sem resumo nem perguntas. |
+| Irritado | Abrir com empatia, reconhecendo o incômodo em uma frase concreta; mostrar que a equipe já agiu e está junto; ir ao ponto com cordialidade, sem frase seca. |
+| Muito irritado (xinga, ameaça cancelar, processar, Procon/Reclame Aqui, tudo em maiúsculas, várias cobranças sem resposta) | Só uma das três falas de encaminhamento ao time de atendimento e suporte, sem resumo nem perguntas. Vence qualquer outro retorno: feedback, suporte com terceiro e falha na plataforma VTEX. |
 
 Na fala de encaminhamento, escolher a variação pelo que a pessoa disse: geral (1), impacto na venda ou operação (2) ou cobrança sem resposta (3). Na dúvida, tratar como irritado. Nunca comentar o humor da pessoa.
+
+**Cordialidade**
+
+Direto não é seco, ainda mais com cliente irritado:
+
+- falar como quem está do lado da pessoa ("Conferimos", "Deixamos pronto");
+- não soar como defesa nem como quem passa a culpa adiante ("o contrato é
+  seu", "precisa partir de você");
+- quando a pessoa precisa agir, explicar o motivo real com cuidado e já
+  oferecer ajuda (por exemplo, a mensagem pronta para o provedor);
+- no texto corrido, pedir em vez de mandar; o imperativo fica para listas de
+  passos;
+- fechar dizendo o que a equipe faz em seguida.
 
 **Chamado de feedback**
 
@@ -63,6 +76,9 @@ reclamação juntos usam a do negativo; muito irritado tem prioridade.
 
 - Palavras do dia a dia. Termo técnico só com explicação na mesma frase.
 - Não usar: arquivo, branch, commit, pull request, componente, cache, SSR, API.
+- Exceção: texto copiado de uma tela do admin, entre aspas, e mensagem pronta
+  que a pessoa vai repassar a um terceiro (por exemplo, ao provedor de
+  pagamento) podem trazer termos técnicos.
 - Quando a troca é no código e não no cadastro, dizer isso de forma simples,
   sem citar arquivo nem repositório.
 - Não falar de banco de horas e não prometer correção que a análise não
@@ -73,8 +89,8 @@ reclamação juntos usam a do negativo; muito irritado tem prioridade.
 
 **Perguntas**
 
-Sempre abrem com a frase fixa "Para podermos seguir com a análise, responda às
-perguntas abaixo:" e vêm numeradas, mesmo quando é uma só.
+Sempre abrem com a frase fixa "Para podermos seguir com a análise, pedimos que
+você responda às perguntas abaixo:" e vêm numeradas, mesmo quando é uma só.
 
 ## Exemplo
 
@@ -94,4 +110,4 @@ Hoje essa categoria está como uma seção própria, ao lado de Gourmet, e não 
 
 | Arquivo | Conteúdo |
 |---|---|
-| `SKILL.md` | Saudação, assinatura, humor do cliente, tom, termos, perguntas e exemplo |
+| `SKILL.md` | Saudação, assinatura, humor do cliente, tom, cordialidade, termos, perguntas e exemplo |
