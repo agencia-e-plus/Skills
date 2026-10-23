@@ -72,6 +72,21 @@ A skill para e devolve só o retorno de uma skill auxiliar quando:
 - a loja não carregou e não há vídeo (devolve uma fala fixa pedindo prints ou
   vídeo).
 
+## Chamado de feedback
+
+Quando o cliente só vem dar um retorno, negativo (reclamação, preocupação com
+problemas que se repetem) ou positivo (elogio, agradecimento), sem pedir uma
+correção ou mudança, o chamado vai direto para o time de atendimento e
+suporte, como o do cliente muito irritado:
+
+- o cliente recebe só a fala fixa de feedback da `client-message-language`
+  (negativo ou positivo), sem resumo, perguntas nem pergunta de confirmação;
+- o relatório interno diz o tipo de feedback e, como primeiro passo, passa o
+  chamado ao atendimento e suporte;
+- se o feedback cita pontos concretos da loja, eles são analisados
+  normalmente para o atendimento receber os fatos; só feedback não confere
+  loja, código nem admin.
+
 ## Limites
 
 - Não altera repositório, arquivos locais da loja, cadastro nem `lojas.json`.
@@ -79,6 +94,8 @@ A skill para e devolve só o retorno de uma skill auxiliar quando:
 - No checkout, pode simular compra com dados de teste, mas **nunca** clica em
   "Finalizar compra".
 - Não estima horas.
+- Não promete prazo nem decide se a entrega cabe numa data; a data pedida vai
+  para os próximos passos do relatório interno.
 
 ## Estrutura dos relatórios
 
@@ -91,10 +108,31 @@ A skill para e devolve só o retorno de uma skill auxiliar quando:
 ## Layout a desenvolver     (evolução com layout)
 ## Cobrança
 ## Próximos passos
+### Passo a passo: [o que muda]   (alteração de cadastro, com print em cada passo)
 
 # Relatório para o cliente
 [saudação] / Resumo / Direcionamento / [aviso de cotação] / pergunta de confirmação / assinatura
 ```
+
+## Passo a passo no cadastro
+
+Quando a correção é no cadastro (Site Editor, coleção, produto, promoção ou
+outra tela do admin), os próximos passos trazem um passo a passo detalhado da
+alteração, com um print do admin em cada passo. A equipe revisa e, se estiver
+certo, encaminha para o cliente fazer. Por isso o texto segue a linguagem do
+cliente: nomes como aparecem na tela, sem nome interno de bloco nem código.
+Os prints são tirados só na leitura: nada é editado, salvo ou publicado para
+fazer o print.
+
+## Links nos relatórios
+
+Todo link abre em qualquer máquina: código com a URL do GitHub (arquivo na
+branch padrão, com as linhas, commit ou PR), página da loja com a URL
+completa e tela do admin com `https://{vendor}.myvtex.com/admin/...`. Nunca
+caminho local ou relativo, exceto nos prints do Playwright: cada print entra
+como link para o caminho absoluto do arquivo na máquina de quem rodou a
+análise, para abrir com um clique, e é salvo localmente para anexar ao
+chamado.
 
 ## Arquivos
 

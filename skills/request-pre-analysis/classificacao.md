@@ -57,6 +57,10 @@ quebra (suporte). Se a pessoa quer que funcione de outro jeito, é evolução.
 Mensagem com vídeo sem reprodução confirmada não entra na tabela: siga o
 [video.md](video.md).
 
+Chamado de feedback também não entra na tabela como um todo: siga a seção
+Chamado de feedback, no `SKILL.md`. Só os pontos concretos que ele citar são
+classificados aqui.
+
 ## Mais de um time
 
 Quando partes do chamado vão para times diferentes, o relatório para o cliente

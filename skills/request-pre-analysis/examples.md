@@ -146,3 +146,109 @@ Para podermos seguir com a análise, responda às perguntas abaixo:
 
 Atendimento Agência e-Plus
 ```
+
+# Passo a passo no cadastro
+
+Entrada: a Ofner aprovou tirar a "Política de Cookies" do menu Institucional
+do rodapé no celular. O item está no Site Editor, versão celular, e a
+alteração é de cadastro. Os prints foram tirados na leitura do admin, sem
+salvar.
+
+Trecho do relatório interno:
+
+```markdown
+## Próximos passos
+
+1. Revisar o passo a passo abaixo e, se estiver certo, encaminhar para a Ofner fazer a alteração.
+
+### Passo a passo: tirar a Política de Cookies do rodapé no celular
+
+1. Abra o Site Editor da loja: https://ofnerio.myvtex.com/admin/cms/site-editor. Pelo menu da esquerda, o caminho é Storefront > Site Editor.
+   Print: [ofner-passo-01-site-editor.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-01-site-editor.png)
+2. Na barra de cima, à direita do campo URL, clique no primeiro dos três ícones de dispositivo, "Visualização para celular". A pré-visualização muda para a versão do celular.
+   Print: [ofner-passo-02-dispositivo-celular.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-02-dispositivo-celular.png)
+3. Na coluna "Blocos", à direita, clique na setinha ao lado de "Rodapé".
+   Print: [ofner-passo-03-rodape.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-03-rodape.png)
+4. Abra pela setinha, nessa ordem: "Mobile", "Footer Menu Mobile", "Institucional" e "editor.menu.submenu.title". Depois, clique no nome "Menu Rodapé Institucional".
+   Print: [ofner-passo-04-menu-institucional.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-04-menu-institucional.png)
+5. O painel "Menu" abre, com 7 linhas chamadas "Item" em "Item do Menu". Para confirmar qual é a Política de Cookies, clique na quarta linha: o painel "Item do Menu" mostra o Texto "Politica de Cookies" e o href "/politica-de-cookies". Não mude nada aqui e clique em "VOLTAR", no topo do painel.
+   Print: [ofner-passo-05-item-politica-de-cookies.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-05-item-politica-de-cookies.png)
+6. De volta à lista, passe o mouse na quarta linha "Item" e clique no botão azul de três pontinhos, à direita dela. No menu que abre, clique em "Excluir".
+   Print: [ofner-passo-06-excluir-item.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-06-excluir-item.png)
+7. Confira que a lista ficou com 6 linhas e clique em "SALVAR", no canto de baixo do painel. A faixa amarela avisa que você está editando a loja em produção: a mudança vale na hora.
+   Print: [ofner-passo-07-salvar.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-07-salvar.png)
+8. Abra https://www.ofner.com.br/ no celular, desça até o rodapé e toque em "Institucional". A lista deve mostrar Quem somos, Politica e Segurança, Nossas Lojas, Trabalhe Conosco e Regulamento, sem a Politica de Cookies.
+   Print: [ofner-passo-08-rodape-celular.png](/home/USUARIO/.claude/playwright/prints/ofner-passo-08-rodape-celular.png)
+```
+
+# Chamado de feedback negativo
+
+Entrada: a Central Cabos relata que uma alteração no rodapé, feita pelo Site
+Editor, aparece no celular e não no computador, e que o botão do WhatsApp
+sumiu. Depois, diz que problemas aparecem depois de cada intervenção
+(avaliações, código do vendedor no checkout, WhatsApp) e pede para a agência
+avaliar se há testes depois de cada alteração e orientar como garantir mais
+estabilidade. O peso da mensagem está nesse retorno; os problemas entram como
+exemplo. A análise dos pontos concretos mostrou que o rodapé tem um texto para
+o computador e outro para o celular no Site Editor, e que o botão do WhatsApp
+já foi corrigido.
+
+Trecho do relatório interno:
+
+```markdown
+## O que o chamado pede
+
+Feedback negativo. A Central Cabos diz que, depois de intervenções na loja, outras funções param de funcionar, e pede para avaliarmos os testes feitos depois de cada alteração. Cita como exemplo o rodapé desatualizado no computador e o botão do WhatsApp.
+
+## Próximos passos
+
+1. Passar o chamado ao time de atendimento e suporte: "a frequência dessas situações está chamando nossa atenção" e "como garantir maior estabilidade nas próximas alterações?".
+2. Explicar à Central Cabos que o rodapé tem duas versões no Site Editor e que só a do celular foi alterada; oferecer replicar o texto na versão do computador.
+3. Confirmar com a Central Cabos que o botão do WhatsApp já aparece no computador e no celular.
+```
+
+Saída para o cliente, na primeira mensagem:
+
+```markdown
+Olá, equipe Central Cabos! Tudo bem?
+
+Agradecemos por compartilhar esse retorno com a gente. Ele é importante para melhorarmos o nosso trabalho. Estamos direcionando o seu chamado para o time de atendimento e suporte, que vai avaliar os pontos que você trouxe e entrar em contato com você em breve.
+
+Atendimento Agência e-Plus
+```
+
+# Chamado de feedback positivo
+
+Entrada: a Kolplast escreve só para agradecer a nova página de categoria, que
+ficou como ela esperava. Não há pedido nem problema. Loja, código e admin não
+são conferidos.
+
+Trecho do relatório interno:
+
+```markdown
+## O que o chamado pede
+
+Feedback positivo. A Kolplast agradece a entrega da nova página de categoria.
+
+## O que está no ar e no código
+
+Feedback, sem ponto concreto na loja para analisar.
+
+## Cobrança
+
+Não se aplica: feedback.
+
+## Próximos passos
+
+1. Passar o chamado ao time de atendimento e suporte: "ficou exatamente como a gente queria, obrigada a todos".
+```
+
+Saída para o cliente, na primeira mensagem:
+
+```markdown
+Olá, equipe Kolplast! Tudo bem?
+
+Muito obrigado pelo retorno! Ficamos felizes em saber que a entrega atendeu ao que você esperava, e vamos compartilhar a sua mensagem com o time. Estamos direcionando o seu chamado para o time de atendimento e suporte, que vai dar seguimento com você.
+
+Atendimento Agência e-Plus
+```

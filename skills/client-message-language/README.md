@@ -52,6 +52,13 @@ Antes de escrever, ler o humor da pessoa e ajustar a mensagem:
 
 Na fala de encaminhamento, escolher a variação pelo que a pessoa disse: geral (1), impacto na venda ou operação (2) ou cobrança sem resposta (3). Na dúvida, tratar como irritado. Nunca comentar o humor da pessoa.
 
+**Chamado de feedback**
+
+Quando o chamado só traz um retorno sobre o serviço, o projeto ou a loja, a
+mensagem é só uma fala fixa de encaminhamento ao time de atendimento e
+suporte: uma para feedback negativo e outra para positivo. Elogio e
+reclamação juntos usam a do negativo; muito irritado tem prioridade.
+
 **Termos**
 
 - Palavras do dia a dia. Termo técnico só com explicação na mesma frase.
@@ -60,6 +67,9 @@ Na fala de encaminhamento, escolher a variação pelo que a pessoa disse: geral 
   sem citar arquivo nem repositório.
 - Não falar de banco de horas e não prometer correção que a análise não
   confirmou.
+- Nunca prometer entrega até uma data, para um evento ou período, ou em X
+  dias. Se a pessoa perguntar se dá tempo, não responder sim nem não: a data
+  fica anotada para a equipe avaliar na cotação.
 
 **Perguntas**
 

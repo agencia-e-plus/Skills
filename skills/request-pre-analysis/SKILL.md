@@ -1,11 +1,13 @@
 ---
 name: request-pre-analysis
 description: >-
-  Faz a pré-análise de um chamado de cliente de loja VTEX (problema, dúvida ou
-  pedido de mudança): confere a loja no ar pelo Playwright, o código nos
-  repositórios e, quando necessário, o admin VTEX, sem alterar nada;
-  classifica como evolução ou suporte e devolve o relatório interno para a
-  Agência e-Plus e o relatório para o cliente, ou as perguntas que faltam. Use
+  Faz a pré-análise de um chamado de cliente de loja VTEX (problema, dúvida,
+  pedido de mudança ou feedback): confere a loja no ar pelo Playwright, o
+  código nos repositórios e, quando necessário, o admin VTEX, sem alterar
+  nada; classifica como evolução ou suporte e devolve o relatório interno para
+  a Agência e-Plus e o relatório para o cliente, ou as perguntas que faltam.
+  Chamado que só traz feedback, negativo ou positivo, vai direto ao time de
+  atendimento e suporte. Use
   quando o usuário pedir pré-análise ou análise de chamado, ticket ou
   solicitação e informar a mensagem do cliente e o nome da loja, mesmo sem
   defeito descrito. Não use só para localizar repositório.
@@ -60,6 +62,10 @@ loja. Se faltar alguma, peça antes de analisar.
 - Carrinho e checkout: no fluxo do passo 4. Nunca clique no botão final de
   "Finalizar compra".
 - Não estime hora.
+- Não prometa prazo nem diga se a entrega cabe numa data, num evento ou num
+  período (seção Prazo, na `client-message-language`). Se a pessoa citar uma
+  data ou perguntar se dá tempo, registre a data no relatório interno, em
+  Próximos passos, para a equipe avaliar na cotação. Não decida se dá tempo.
 
 ## Quando a resposta é outra
 
@@ -80,6 +86,42 @@ Mensagem com vídeo cuja reprodução não confirmou o problema segue o
 
 Não param a análise: chegar ao trecho sem ver o erro (em suporte, a causa pode
 ser inconclusiva) e o trecho fora do HTML com a página carregada (passo 4).
+
+## Chamado de feedback
+
+Alguns chamados não pedem nada da loja: a pessoa vem dar um retorno sobre o
+serviço da agência, o andamento do projeto ou a loja. Esse retorno pode ser
+negativo (reclamação, preocupação com problemas que se repetem, cobrança de
+mais testes ou de mais cuidado) ou positivo (elogio, agradecimento, "ficou
+ótimo"). Esse chamado vai direto para o time de atendimento e suporte, como o
+do cliente muito irritado.
+
+É chamado de feedback quando o peso da mensagem está no retorno, e não num
+pedido de correção, mudança ou resposta sobre a loja. Sinais: a pessoa pede
+para "avaliar", "entender" ou "nos orientar" sobre o serviço; fala da
+frequência dos problemas, da forma de trabalhar ou dos testes; agradece ou
+elogia uma entrega; cita problemas como exemplo do que está dizendo, e não
+para pedir a correção de cada um. Uma frase de agradecimento ou reclamação
+num chamado que pede uma correção não muda o chamado: ela entra só no humor
+(veja a `client-message-language`).
+
+Na dúvida entre feedback e pedido, conte o que a mensagem pede de fato. Se a
+pessoa quer que algo na loja seja corrigido, mudado ou explicado, e o retorno
+só acompanha esse pedido, siga o fluxo normal.
+
+Como seguir:
+
+- Só feedback, sem ponto concreto na loja (elogio, agradecimento, reclamação
+  geral): não confira loja, código nem admin. Leia a mensagem e os anexos
+  (passo 3) e vá para o Retorno.
+- Feedback que cita pontos concretos da loja (por exemplo, "o botão do
+  WhatsApp sumiu" como exemplo de problema recorrente): faça o fluxo para
+  esses pontos, do passo 1 ao 8, para o atendimento receber os fatos. Não
+  pergunte nada à pessoa: o que faltaria perguntar vai para os Próximos
+  passos.
+
+Cliente muito irritado tem prioridade: se o feedback vier com os sinais do
+nível muito irritado, use a fala de encaminhamento desse nível.
 
 ## Fluxo
 
@@ -114,6 +156,9 @@ mandou para mostrar a mudança. Anexo que não abre (página não encontrada,
 login, timeout ou arquivo ilegível) vai para Perguntas, no passo 8; a análise
 continua. Nomeie o trecho da página que o cliente aponta. Um print é estático:
 não prova que animação, carrossel ou contador parou.
+
+Veja também se a mensagem é um chamado de feedback (seção Chamado de
+feedback). Só feedback, sem ponto concreto: vá direto para o Retorno.
 
 ### 4. Loja no ar
 
@@ -216,6 +261,16 @@ cada versão (link, texto, imagem, coleção, visibilidade). Não conclua o valo
 de uma versão pelo site no ar nem pelo valor de outra versão. Abra o bloco só
 para ler: não altere campo, não salve e não publique; saia sem salvar.
 
+Para chegar a um campo, clique só no nome do bloco ou do item que abre a
+leitura. Não clique em Adicionar, Remover, Duplicar, chave, caixa de seleção
+nem opção de lista. Se o botão Salvar ficar ativo sem que você tenha mudado
+nada, ou se um clique criar ou mudar algo na tela, saia por Cancelar e
+Descartar, e confira na loja no ar que nada mudou.
+
+Quando a correção ou a mudança for no cadastro, tire nessa mesma leitura os
+prints do passo a passo (seção Passo a passo no cadastro): cada tela do
+caminho, do menu até o campo que muda.
+
 O que o admin mostra em leitura não vira próximo passo. Não deixe "conferir no
 Site Editor" ou "ver no admin" para quem segue o chamado quando você mesmo
 podia ler. Se a tela não abriu ou não mostrou o valor, diga isso no relatório
@@ -269,7 +324,7 @@ sobre o que a mensagem, os anexos, a loja e o código não respondem. A resposta
 traz só as perguntas, no formato da `client-message-language`, com o contexto
 antes delas quando a pergunta é uma escolha sobre o que a análise encontrou. A
 pré-análise sai depois das respostas, já alinhada ao que foi confirmado. Com
-cliente muito irritado, não pergunte: siga o Retorno.
+cliente muito irritado ou chamado de feedback, não pergunte: siga o Retorno.
 
 Também vão para Perguntas:
 
@@ -316,6 +371,21 @@ cliente, exceto:
   relatório interno, em Próximos passos, o primeiro item é passar o chamado
   ao time de atendimento e suporte, citando os trechos da mensagem que
   mostram a irritação.
+- Chamado de feedback (seção Chamado de feedback): o relatório interno e, no
+  lugar do relatório para o cliente ou das perguntas, só a fala de feedback
+  da `client-message-language` (negativo ou positivo), com saudação e
+  assinatura. No relatório interno:
+  - O que o chamado pede: o tipo de feedback (negativo ou positivo) e, em
+    uma ou duas frases, o que a pessoa diz.
+  - Só feedback, sem ponto concreto: no lugar de "O que está no ar e no
+    código" e de Causa ou Tipo de demanda, escreva "Feedback, sem ponto
+    concreto na loja para analisar.". Cobrança: "Não se aplica: feedback."
+  - Com pontos concretos: as seções de sempre, ponto a ponto, com a
+    classificação e a cobrança de cada um.
+  - Próximos passos: o primeiro item é passar o chamado ao time de
+    atendimento e suporte, citando os trechos da mensagem que mostram o
+    feedback. Depois, o que cada ponto concreto pede, e o que faltaria
+    perguntar à pessoa.
 
 Exemplos em [examples.md](examples.md).
 
@@ -326,7 +396,7 @@ Exemplos em [examples.md](examples.md).
 [Uma frase: trecho da loja e o que o cliente pede. Pode citar o nome do cliente.]
 
 ## O que está no ar e no código
-[Primeira linha: tecnologia (CMS, IO, Deco, FastStore ou nao_identificada), repositório da vitrine e vendor, com a origem (cadastro ou identificação, com a situação); se a identificação rodou e divergiu do cadastro, os dois. Depois, arquivo e como funciona hoje. PR ou commit só quando explicam a mudança. Em cadastro, a tela e o registro do admin.]
+[Primeira linha: tecnologia (CMS, IO, Deco, FastStore ou nao_identificada), repositório da vitrine e vendor, com a origem (cadastro ou identificação, com a situação); se a identificação rodou e divergiu do cadastro, os dois. Depois, arquivo (link do GitHub, com as linhas) e como funciona hoje. PR ou commit (link do GitHub) só quando explicam a mudança. Página conferida com a URL completa da loja. Em cadastro, a tela (URL do admin) e o registro. Veja Links.]
 
 ## Causa mais provável
 [Só em suporte. Uma das quatro causas do classificacao.md, com a evidência que você viu: tela do admin, arquivo ou o que apareceu na loja no ar. Não use dedução no lugar de leitura (passo 8). Se houver mais de um candidato, diga qual falta reproduzir.]
@@ -342,6 +412,14 @@ Exemplos em [examples.md](examples.md).
 
 ## Próximos passos
 1. [Ação concreta de quem vai seguir o chamado, na ordem das colunas Cotação e Depois da cotação do classificacao.md. Pode dizer "explicar para [nome do cliente]...".]
+2. [...]
+3. [Em alteração de cadastro: "Revisar o passo a passo abaixo e, se estiver certo, encaminhar para [nome do cliente] fazer a alteração."]
+
+### Passo a passo: [o que muda no cadastro]
+[Só em alteração de cadastro. Veja Passo a passo no cadastro.]
+
+1. [Ação, com o nome exato do que clicar e onde fica na tela.]
+   Print: [link do print]
 2. [...]
 
 # Relatório para o cliente
@@ -361,7 +439,8 @@ Resumo do problema:
 ```
 
 O relatório interno é técnico: pode nomear o cliente e orientar a agência
-("explicar para a Degusta Casa..."). O relatório para o cliente segue a
+("explicar para a Degusta Casa..."). A exceção é o passo a passo no
+cadastro, escrito para o cliente (seção Passo a passo no cadastro). O relatório para o cliente segue a
 `client-message-language`, inclusive na saudação e na assinatura.
 
 No resumo, use o rótulo que couber: Resumo do problema, Resumo da solicitação
@@ -371,3 +450,100 @@ A pergunta de confirmação vem depois do direcionamento e do aviso de cotação
 sempre com o texto do modelo. Ela não entra no relatório interno e não
 substitui Perguntas: se a análise ainda não saiu, a resposta continua trazendo
 só as perguntas. Sem relatório para o cliente, ela não entra.
+
+## Passo a passo no cadastro
+
+Quando a correção ou a mudança, ou uma parte dela, é no cadastro da loja
+(suporte de cadastro, evolução sem código ou solução de dúvida que indica uma
+tela do admin), os Próximos passos trazem o passo a passo dessa alteração. A
+equipe revisa o passo a passo e, se estiver certo, encaminha para o cliente
+fazer. Por isso ele precisa funcionar sozinho, para quem nunca abriu aquela
+tela.
+
+Ele vale também quando a correção já foi feita e só falta uma parte: monte o
+passo a passo do que falta. Não vale para o que é só código.
+
+Como montar:
+
+- Um passo a passo por alteração, com o título do que muda. Se a mesma
+  alteração vale para mais de um dispositivo no Site Editor, cada versão tem
+  os seus passos, começando pela troca do dispositivo.
+- O primeiro passo abre a tela: a URL completa do admin, com o vendor
+  conferido, e o caminho pelo menu como a pessoa vê (por exemplo, Storefront >
+  Site Editor).
+- Um passo por ação: abrir a tela, trocar o dispositivo, abrir o bloco, abrir
+  o item, mudar o campo, salvar e conferir. Diga onde o elemento fica na tela
+  (barra de cima, coluna da esquerda, painel da direita) e use os nomes
+  exatamente como aparecem na tela, com as mesmas maiúsculas: bloco, item,
+  campo e botão.
+- No passo que muda o dado, diga o valor de hoje e o que fazer: o valor que
+  entra, o item que sai ou a opção que liga ou desliga. Valor que a pessoa
+  ainda não deu vai para Perguntas, não para o passo a passo.
+- Diga o que a tela avisa ou pede antes de salvar ou publicar. No Site
+  Editor, a alteração vale na hora para a loja em produção.
+- O último passo confere na loja no ar: a URL completa, o dispositivo e o
+  que deve aparecer depois da alteração.
+- O texto vai para o cliente: siga os Termos da `client-message-language`,
+  sem nome interno de bloco (como footer-layout.mobile ou menu#footerMenu1),
+  caminho de árvore, arquivo ou código. Use a segunda pessoa e o imperativo
+  ("Clique em", "Desligue"). Sem saudação e sem assinatura: o passo a passo
+  fica no relatório interno.
+
+Prints:
+
+- Cada passo que mostra uma tela tem o seu print, logo depois do texto do
+  passo ("Print: [link]"). Tire os prints no admin, pelo `playwright-admin`,
+  na leitura do passo 7. O print mostra a tela no ponto do passo: o menu, o
+  botão do dispositivo, o bloco aberto, o item aberto, o campo que muda.
+- Pode destacar no print o que clicar, com um contorno desenhado só na página
+  aberta no navegador (por exemplo, um `outline` vermelho aplicado pelo
+  `browser_evaluate`). O destaque não clica, não muda campo e some ao
+  recarregar.
+- Nunca edite, salve ou publique para fazer um print. No passo de mudar o
+  campo e no de salvar, o print mostra o campo com o valor de hoje e o botão
+  Salvar, sem clicar nele; o texto do passo diz o que fazer.
+- O passo de conferir na loja no ar usa um print da página de hoje, tirado
+  pelo `playwright`, com o trecho que vai mudar.
+- Nome do print: `[loja]-passo-[NN]-[o-que-mostra].png`, sem espaços. O link
+  segue a regra de prints da seção Links.
+- Se uma tela não abriu, ou se não deu para chegar ao ponto sem alterar algo,
+  diga isso no passo e não invente o caminho.
+
+## Links
+
+Todo link do relatório interno precisa abrir uma página válida em qualquer
+máquina: quem recebe o relatório não tem os arquivos desta máquina. Por isso,
+nenhum link aponta para um caminho local (`/home/...`, `~/...`, `file://`) nem
+para um caminho relativo como `src/manifest.json`, que a interface transforma
+em link para a pasta de trabalho. A única exceção são os prints do Playwright
+(último item abaixo).
+
+- Código: use a URL do GitHub do repositório que você leu, na branch padrão
+  (passo 5), com as linhas quando citar um trecho:
+  `[src/manifest.json](https://github.com/ORG/REPO/blob/BRANCH/src/manifest.json)`
+  e
+  `[bupbaby.shipping-simulator.scss:402-404](https://github.com/ORG/REPO/blob/BRANCH/CAMINHO#L402-L404)`.
+  Pasta: `https://github.com/ORG/REPO/tree/BRANCH/CAMINHO`. Commit:
+  `https://github.com/ORG/REPO/commit/SHA`. PR:
+  `https://github.com/ORG/REPO/pull/NUMERO`. Repositório:
+  `https://github.com/ORG/REPO`.
+- Loja: a URL completa da página conferida no Playwright, como
+  `https://www.loja.com.br/produto/p`, e não só o nome do produto ou o SKU.
+- Admin: a URL completa da tela lida, em
+  `https://{vendor}.myvtex.com/admin/...`, com o vendor conferido.
+- Caminho de arquivo sem link (o nome de uma classe, de um bloco ou de um
+  arquivo citado no meio da frase) vai em texto, sem crase, para não virar
+  link local. Quando o arquivo importa, use o link do GitHub.
+- Print salvo pelo Playwright fica só na máquina de quem roda a análise.
+  Cite cada print como link para o caminho absoluto do arquivo, para quem lê
+  abrir a imagem com um clique:
+  `[kolplast-revendedor.png](/home/USUARIO/.claude/playwright/prints/kolplast-revendedor.png)`.
+  Use o caminho real, com o `$HOME` expandido: não use `~`, `$HOME`, caminho
+  relativo nem `file://`. Salve o print com nome sem espaços, para o link não
+  quebrar. Diga que ele está salvo localmente para ser anexado ao chamado.
+  Esse link só entra no relatório interno, nunca no relatório para o cliente.
+
+Antes de entregar, confira cada link: ele começa com `https://` e aponta para
+o GitHub, a loja ou o admin, ou é o caminho absoluto de um print que existe
+nesta máquina. Link que você não montou a partir do que leu
+(arquivo, branch, linha, SHA ou URL da página) não entra.

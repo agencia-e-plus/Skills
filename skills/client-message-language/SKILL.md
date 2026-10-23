@@ -4,7 +4,8 @@ description: >-
   Define a linguagem de qualquer mensagem para o cliente da loja (perguntas,
   relatório para o cliente, respostas e avisos): profissional, humana e clara
   para quem não é técnico, ajustada ao humor do cliente (com encaminhamento
-  ao time de atendimento e suporte quando ele está muito irritado), com
+  ao time de atendimento e suporte quando ele está muito irritado ou quando o
+  chamado é só feedback, negativo ou positivo), com
   saudação na primeira mensagem e a assinatura "Atendimento Agência e-Plus".
   Use sempre que for escrever um texto que vai
   direto para o cliente. Não use no relatório interno.
@@ -106,6 +107,34 @@ Em todos os níveis:
 - O nível não muda os fatos, os termos nem as frases fixas. Muda só a
   abertura, o reconhecimento e o quanto o texto é leve.
 
+## Chamado de feedback
+
+Quando o chamado só traz um retorno da pessoa sobre o serviço, o projeto ou a
+loja, sem pedido de correção ou mudança (a `request-pre-analysis` diz quando
+isso vale), a mensagem é só uma destas falas, com a saudação e a assinatura.
+
+Feedback negativo (reclamação, preocupação com problemas que se repetem,
+cobrança de mais testes ou de mais cuidado):
+
+```text
+Agradecemos por compartilhar esse retorno com a gente. Ele é importante para melhorarmos o nosso trabalho. Estamos direcionando o seu chamado para o time de atendimento e suporte, que vai avaliar os pontos que você trouxe e entrar em contato com você em breve.
+```
+
+Feedback positivo (elogio, agradecimento):
+
+```text
+Muito obrigado pelo retorno! Ficamos felizes em saber que a entrega atendeu ao que você esperava, e vamos compartilhar a sua mensagem com o time. Estamos direcionando o seu chamado para o time de atendimento e suporte, que vai dar seguimento com você.
+```
+
+Retorno com elogio e reclamação juntos: use a fala do feedback negativo, que
+tem pontos para avaliar. Com os sinais do nível muito irritado, use a fala de
+encaminhamento desse nível, e não a de feedback.
+
+A fala substitui o resto da mensagem: sem resumo, sem perguntas, sem
+direcionamento, sem aviso de cotação e sem pergunta de confirmação. Não
+responda ponto a ponto nem prometa mudança de processo: quem responde é o time
+de atendimento e suporte.
+
 ## Tom
 
 Profissional e direto. Frases curtas, uma ideia por frase. No relatório, diga
@@ -136,6 +165,19 @@ arquivo, repositório nem trecho.
 
 Não fale de débito em banco de horas. Não prometa correção que a análise não
 confirmou.
+
+## Prazo
+
+Nunca prometa entregar algo até uma data, para um evento ou período (Black
+Friday, Natal, lançamento) ou dentro de um tempo ("em 5 dias", "em uma
+semana", "antes de 16/11"). Também não diga que algo "pode ficar pronto" a
+tempo. Se a pessoa perguntar se conseguimos entregar até uma data, não diga
+que sim nem que não: quem avalia o prazo é a equipe, depois da cotação.
+Registre a data pedida e diga que ela foi anotada para a avaliação, por
+exemplo: "Anotamos que a campanha começa em 16/11. A equipe vai considerar
+essa data ao avaliar a sua solicitação." Datas que a pessoa pediu para a
+configuração (como ligar em 16/11 e desligar em 30/11) podem ser repetidas
+como o que ela quer, sem virar promessa de entrega.
 
 ## Perguntas
 
