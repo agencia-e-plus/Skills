@@ -14,6 +14,7 @@ FastStore is VTEX's modern, headless storefront framework built on Next.js and R
 | **FastStore Theming & Design Tokens** | Master the design token system (global and local), create custom themes in `src/themes/`, and style components using Sass and CSS custom properties without modifying component behavior. | [skills/faststore-theming/skill.md](skills/faststore-theming/skill.md) |
 | **FastStore SDK State Management** | Use `@faststore/sdk` hooks (`useCart()`, `useSession()`, `useSearch()`) to manage cart, session, and search state. Understand why the SDK is the single source of truth for these concerns. | [skills/faststore-state-management/skill.md](skills/faststore-state-management/skill.md) |
 | **FastStore Data Layer & API Integration** | Extend the FastStore GraphQL API with VTEX and third-party data sources, use fragments to customize queries, and consume extended data in components. | [skills/faststore-data-fetching/skill.md](skills/faststore-data-fetching/skill.md) |
+| **FastStore LCP priority section** | Use `skipLazyLoadingSection` on the above-the-fold hero, wire preload/eager images in code, and validate production HTML after CP push and static rebuild. | [skills/faststore-lcp-priority-section/skill.md](skills/faststore-lcp-priority-section/skill.md) |
 
 ## Recommended Learning Order
 

@@ -1,0 +1,194 @@
+---
+name: faststore-lcp-priority-section
+description: "Apply when improving FastStore v4 mobile LCP or PageSpeed for the above-the-fold hero on Content Platform pages, when `skipLazyLoadingSection` is missing from schema or content, when section-level `next/head` preloads never appear in initial HTML, or when ViewportObserver serves 823px lazy placeholders instead of hero markup. Use for hero SSR, image preload, eager/fetchPriority wiring, and CP content plus static rebuild validation."
+---
+
+# FastStore — LCP priority section (`skipLazyLoadingSection`)
+
+Framework-level guidance for **FastStore v4** storefronts on the **Content Platform** (`contentSource.type: cp`).
+Project-specific section keys, URLs, and schema versions belong in that store's own docs, not in this skill.
+
+## When this skill applies
+
+Use this skill when:
+
+- Mobile **LCP** or PageSpeed targets the **first above-the-fold hero** (banner, carousel, hero image section).
+- `rel="preload"` or `next/head` inside a custom section **never appears** in the first HTML response.
+- You need to add or document **`skipLazyLoadingSection`** on section CMS content or schema.
+- Live HTML shows **`data-store-section-name`** placeholders (~823px) for the hero instead of real markup.
+
+Do not use this skill when:
+
+- The problem is only below-the-fold images or product shelves — use lazy loading and normal image sizing instead.
+- You are on **Headless CMS v3** (`contentSource.type` not CP) — lazy-loading behavior may differ; verify core version first.
+- You expect **CrUX / field data** to improve the same week as a deploy — field data rolls on a ~28-day window.
+
+Also use **`faststore-overrides`** or **`faststore-theming`** for non-LCP visual work, and your store's **CMS content push** procedures for schema upload and scoped content commits.
+
+## Decision rules
+
+- **SSR vs lazy** is controlled by **`data.skipLazyLoadingSection`** on the section entry in CP content — not by React props alone (`RenderSections` reads `data` before rendering).
+- **One hero per page** should have the flag `true`; duplicate heroes, mid-page banners, and PLP promos stay `false`.
+- **Preload, `fetchPriority="high"`, `loading="eager"`** belong in **component code**, usually for the **first slide or first image** only, using **CMS-provided URLs** (with `media` when mobile and desktop assets differ).
+- A schema boolean for the flag is **optional UX** for editors; CP accepts the key in section `data` even without a registered field.
+- After CP content changes, **static pages need a rebuild** (WebOps / CI `yarn build`) — SSG HTML does not refresh from CP alone.
+- Before editing local `cms/content/*.json`, **`--pull`** the live entry — never push from a stale file.
+
+## Hard constraints
+
+### Constraint: CMS flag must be on for head hints and hero SSR
+
+MUST set `"skipLazyLoadingSection": true` on the single above-the-fold hero section instance in CP content when LCP depends on that section's markup or `next/head`. MUST NOT rely on component-only preload or eager images while the section remains inside `ViewportObserver` lazy loading.
+
+**Why this matters**
+
+`@faststore/core` wraps sections in `LazyLoadingSection` unless the flag is set. Default SSR emits an **823px placeholder** (`data-store-section-name`) instead of the section tree, so LCP images and `next/head` preloads are discovered only after JavaScript runs — too late for first-byte LCP optimization.
+
+**Detection**
+
+`curl` production HTML: count `data-store-section-name="<SectionName>"` for the hero — placeholders with no hero root marker means the flag is off or HTML is stale. If Lighthouse LCP element is a gray box or unrelated asset, check this first.
+
+**Correct**
+
+```json
+{
+  "name": "Hero",
+  "data": {
+    "skipLazyLoadingSection": true,
+    "slides": [{ "image": "https://account.vtexassets.com/..." }]
+  }
+}
+```
+
+**Wrong**
+
+```tsx
+// HeroBanner.tsx — preload without CMS flag
+export default function HeroBanner({ slides }: Props) {
+  return (
+    <>
+      <Head>
+        <link rel="preload" as="image" href={slides[0].image} />
+      </Head>
+      <img src={slides[0].image} loading="eager" fetchPriority="high" />
+    </>
+  )
+}
+// Section still lazy → preload and img absent from initial HTML
+```
+
+---
+
+### Constraint: Do not enable LCP priority on every section
+
+MUST enable `skipLazyLoadingSection` on **at most one** hero instance per page (typical: first item in `sections[]`). MUST NOT set the flag on all banners, shelves, or global sections site-wide.
+
+**Why this matters**
+
+Each non-lazy section increases **HTML weight**, **main-thread work**, and **contention** for the single LCP candidate — often **worsening** lab scores while trying to fix LCP.
+
+**Detection**
+
+Multiple full hero markups in HTML where only one should be above the fold, or several sections with the flag in `window.__NEXT_DATA__` page props for the same route.
+
+**Correct**
+
+First home section: `skipLazyLoadingSection: true`. Second carousel lower on the page: omitted or `false`.
+
+**Wrong**
+
+```json
+"sections": [
+  { "name": "Hero", "data": { "skipLazyLoadingSection": true } },
+  { "name": "Hero", "data": { "skipLazyLoadingSection": true } }
+]
+```
+
+## Preferred pattern
+
+### Core mechanism (read-only reference)
+
+`RenderSections` → `LazyLoadingSection` → **`ViewportObserver`** (`@faststore/core`):
+
+| Phase | Default (lazy) | `skipLazyLoadingSection: true` |
+| --- | --- | --- |
+| SSR | ~823px placeholder | Full section markup |
+| `next/head` in section | Too late for first HTML | Merged into initial document |
+| LCP image | After JS / IO | Candidate in first response |
+
+### Schema (optional Admin field)
+
+In `cms/faststore/components/cms_component__<key>.jsonc`:
+
+```jsonc
+"skipLazyLoadingSection": {
+  "type": "boolean",
+  "title": "Load in initial HTML (LCP priority)",
+  "description": "Enable only for the single above-the-fold hero on this page.",
+  "default": false
+}
+```
+
+Publish schema via your store's generate → flatten → upload flow (account gate and explicit user confirmation before upload).
+
+### Component code
+
+- Accept `skipLazyLoadingSection?: boolean` on props; **destructure and discard** (core consumes it from `data`, not the DOM).
+- First LCP candidate: `loading="eager"`, `fetchPriority="high"`, and `next/head` preloads from CMS URLs with `media` when art differs by breakpoint.
+- Add **`preconnect`** to asset hosts in centralized head injection (e.g. `ThirdPartyScripts`) when LCP images come from `*.vtexassets.com`.
+
+### Content and deploy
+
+1. Account verification and destination namespace check before any CP write.
+2. `--list --only <contentType>` → entry id; **`--pull`** → set flag on one section only.
+3. `--dry-run` or `--diff` with scoped `--only` and `--entry`.
+4. Push after explicit **yes**; use a registered **`--author`** email when required.
+5. Trigger **static rebuild**; re-check HTML with read-only `curl`.
+
+### Diagnose live HTML (read-only)
+
+Replace `STORE_URL`, `SECTION_NAME`, and optional `SECTION_MARKER`:
+
+```bash
+curl -sL 'https://STORE_URL/' | python3 -c "
+import sys,re
+h=sys.stdin.read()
+name='SECTION_NAME'
+print('lazy placeholder count:', h.count(f'data-store-section-name=\"{name}\"'))
+print('image preload:', bool(re.search(r'rel=\"preload\"[^>]*as=\"image\"', h)))
+print('flag in payload:', 'skipLazyLoadingSection' in h)
+"
+```
+
+## Common failure modes
+
+| Mistake | Effect |
+| --- | --- |
+| Preload in component, flag off | No benefit in initial HTML |
+| Flag on every hero | Larger HTML, worse lab scores |
+| Content push without pull | Overwrites Admin edits |
+| CP change without rebuild | Old SSG HTML served |
+| CrUX unchanged same week | Expected — field data lags |
+
+## Review checklist
+
+- [ ] Exactly **one** above-the-fold hero has `skipLazyLoadingSection: true` on the target page entry.
+- [ ] First LCP image uses **eager + high fetch priority**; other slides/images stay **lazy**.
+- [ ] Production HTML includes **hero markup** (not only placeholder) and **image preload** link(s) when preloads are implemented.
+- [ ] Schema upload (if any) was **flattened** and uploaded to the correct **`account.store`** namespace.
+- [ ] Content push was **scoped** (`--only`, `--entry`) after **pull**.
+- [ ] **Rebuild** completed after CP change; validation uses fresh HTML, not localhost-only assumptions for branch content.
+
+## Related skills
+
+- **`faststore-overrides`** — custom hero sections and `getOverriddenSection` when the native section is not the LCP target.
+- **`faststore-theming`** — visual tokens without changing lazy-load or head behavior.
+- **`faststore-data-fetching`** — not for LCP; use when hero needs extra GraphQL fields.
+
+## Reference
+
+- Core: `RenderSections`, `LazyLoadingSection`, `ViewportObserver` in `@faststore/core` (CMS rendering).
+- Runtime truth: `window.__NEXT_DATA__.props.pageProps.page.sections` vs `globalSections.sections`.
+- Lab LCP: Lighthouse mobile; field data: CrUX / PageSpeed Insights (rolling window).
+- [FastStore — Headless CMS](https://developers.vtex.com/docs/guides/faststore/headless-cms-overview) — how CMS sections and content types feed the storefront.
+- [FastStore — Building sections](https://developers.vtex.com/docs/guides/faststore/building-sections-overview) — custom sections, schema, and registration patterns adjacent to LCP work.
