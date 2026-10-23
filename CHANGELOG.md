@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 (2026-10-23)
+
+
+### Features
+
+* add eplus-cli, tarefy, custom app scss, globalize, and styling skills ([3c6e370](https://github.com/agencia-e-plus/Skills/commit/3c6e370a93bcd0e75ecf49a7e6b9201449a38b56))
+* add pagespeed-triage skill and activation rule ([60228c7](https://github.com/agencia-e-plus/Skills/commit/60228c7d2eaeaf9eecdcb84b360795f89831539d))
+* add request-pre-analysis ([98e2bfd](https://github.com/agencia-e-plus/Skills/commit/98e2bfd8a9b82216fe3f73369461e871253f57b0))
+* enhance client-message-language with humor assessment and response guidelines ([0495d9b](https://github.com/agencia-e-plus/Skills/commit/0495d9bf5168b05bb739de3233393c64d3ae3aaa))
+* implement feedback handling in request-pre-analysis and client-message-language ([47acc44](https://github.com/agencia-e-plus/Skills/commit/47acc448d434a1cb81113e687cc5d088d9574ce8))
+* refine client-message-language and request-pre-analysis with enhanced empathy and support guidelines ([a9d9687](https://github.com/agencia-e-plus/Skills/commit/a9d96875aafb85d60cbce27f522524a76546a21f))
+
 ## [1.4.3](https://github.com/vtex/skills/compare/v1.4.2...v1.4.3) (2026-04-06)
 
 
